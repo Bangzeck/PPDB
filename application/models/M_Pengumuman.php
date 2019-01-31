@@ -24,8 +24,11 @@ class M_Pengumuman extends CI_Model
     }
 
     public function getAll()
-    {
-        return $this->db->get($this->_table)->result();
+    {   
+        $this->db->from($this->_table);
+        $this->db->order_by("tanggal", "desc");
+        $query = $this->db->get(); 
+        return $query->result();
     }
 
     public function save()

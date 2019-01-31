@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2019 at 05:36 PM
+-- Generation Time: Jan 31, 2019 at 02:48 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -70,8 +70,22 @@ CREATE TABLE `db_data_siswa` (
 INSERT INTO `db_data_siswa` (`id`, `nisn`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_keluarga`, `alamat_siswa`, `nomor_siswa`, `nama_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nomor_ayah`, `nama_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nomor_ibu`, `nama_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `nomor_wali`, `npsn_sekolah`, `nama_sekolah`, `status_sekolah`, `alamat_sekolah`, `tahun_lulus`, `status_pendaftaran`, `tanggal_pendaftaran`) VALUES
 (10, '9994567888', 'sasa', 'Laki - laki', 'dadada', '0000-00-00', 'Kristen Protestan', 'Anak kandung', 'dasfghjk', '1234567', 'adsfgh', 'Tidak sekolah', 'Tani', '500-1jt', '1234567', 'asdfdghj', 'Diploma', 'Polri/TNI', '3jt-5jt', '12345678', 'sfasf', 'SD/MI', 'Tani', '1jt-3jt', '12345678', '123456', 'dasfghj', 0, '', 2121, 'Diterima', NULL),
 (14, '14045', 'Zakki', 'Laki - laki', 'Semarang', '1996-08-05', 'Islam', 'Anak kandung', 'Jalan Rajawali No.11', '081339637475', 'Slamet', '', 'Tani', '500-1jt', '4545455', 'Sri', 'S1', 'PNS', '3jt-5jt', '565656565', 'Risdy', 'S3', 'Lainnya', '5jt-10jt', '78787878', '1452', 'Magelang', 0, '', 2015, 'Tidak Diterima', NULL),
-(15, '9998548459', 'sas', 'Perempuan', 'asas', '2018-01-15', 'Kristen Protestan', 'Anak angkat', 'sasad', '13131', 'dada', 'Diploma', 'Tani', '-500rb', '13131', 'dadada', 'Diploma', 'PNS', '1jt-3jt', '13131', 'dasdaw', '', 'Buruh', '500-1jt', '1313', '1232', 'afasf', 0, '', 0000, 'Belum Diverifikasi', NULL),
-(16, '9998548459', 'sas', 'Perempuan', 'asas', '2018-01-15', 'Kristen Protestan', 'Anak angkat', 'sasad', '13131', 'dada', 'Diploma', 'Tani', '-500rb', '13131', 'dadada', 'Diploma', 'PNS', '1jt-3jt', '13131', 'dasdaw', '', 'Buruh', '500-1jt', '1313', '1232', 'afasf', 0, '', 0000, 'Diterima', NULL);
+(15, '9998548459', 'sas', 'Perempuan', 'asas', '2018-01-15', 'Kristen Protestan', 'Anak angkat', 'sasad', '13131', 'dada', 'Diploma', 'Tani', '-500rb', '13131', 'dadada', 'Diploma', 'PNS', '1jt-3jt', '13131', 'dasdaw', '', 'Buruh', '500-1jt', '1313', '1232', 'afasf', 0, '', 0000, 'Belum Diverifikasi', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `db_email`
+--
+
+CREATE TABLE `db_email` (
+  `id` int(10) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `subjek` varchar(100) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `pesan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -126,8 +140,10 @@ CREATE TABLE `db_pengumuman` (
 
 INSERT INTO `db_pengumuman` (`id`, `judul`, `isi`, `tanggal`) VALUES
 (1, 'sasa', '<p>sasa</p>\r\n', '2019-01-24 08:51:38'),
-(4, 'Pengumuman tanggal pelaksanaan ujian', '<p>14045</p>\r\n', '2019-01-24 19:14:59'),
-(5, 'Pengumuman tanggal pelaksanaan ujian', '<p>14045</p>\r\n', '2019-01-24 19:15:33');
+(5, 'Pengumuman tanggal pelaksanaan ujian', '<p>14045</p>\r\n', '2019-01-24 19:15:33'),
+(15, 'What is Lorem Ipsum?', '<p>pengumuman</p>\r\n', '2019-01-28 08:58:08'),
+(18, 'Uji Coba', '<p>Lorem Ipsum Dolor Sit Amet</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2019-01-28 09:16:27'),
+(19, 'Bismillah', '<p><em><strong>Bismillah</strong></em></p>\r\n\r\n<p>&nbsp;</p>\r\n', '2019-01-28 09:17:23');
 
 -- --------------------------------------------------------
 
@@ -192,6 +208,12 @@ ALTER TABLE `db_data_siswa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `db_email`
+--
+ALTER TABLE `db_email`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `db_kode_form`
 --
 ALTER TABLE `db_kode_form`
@@ -229,7 +251,13 @@ ALTER TABLE `db_user`
 -- AUTO_INCREMENT for table `db_data_siswa`
 --
 ALTER TABLE `db_data_siswa`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `db_email`
+--
+ALTER TABLE `db_email`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `db_kode_form`
@@ -247,7 +275,7 @@ ALTER TABLE `db_nilai_un`
 -- AUTO_INCREMENT for table `db_pengumuman`
 --
 ALTER TABLE `db_pengumuman`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `db_registrasi`

@@ -30,7 +30,7 @@
                 <!-- <a href="#" class="thumbnail">
                     <img alt="Image" src="http://i.imgur.com/tAHVmXi.jpg">
                 </a> -->
-                <p><?= substr($p->isi, 0, 100) ?>........</p>
+                <p><?= substr($p->isi, 0, 350) ?>........</p>
                 <a href="<?php echo base_url();?>pages/readmore/<?php echo $p->id ?>" >Read more</a>
             </div>
         </div>

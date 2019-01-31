@@ -15,14 +15,29 @@ class Pengumuman extends CI_Controller {
         if($session != 'login'){
             $this->load->view('pages/login');
         }else{ 
-            $data["getpengumuman"] = $this->M_Pengumuman->getAll();
+            $data["pengumuman"] = $this->M_Pengumuman->getAll();
             $this->load->view("admin/_partials/header");
             $this->load->view("admin/_partials/navbar");
-            $this->load->view("admin/pengumuman", $data);
+            $this->load->view("admin/pengumuman/pengumuman", $data);
             $this->load->view("admin/_partials/footer.php");
             $this->load->view("admin/_partials/modal");
             $this->load->view("admin/_partials/js.php");
         }
+    }
+
+    public function write()
+    {   
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{ 
+            $this->load->view("admin/_partials/header");
+            $this->load->view("admin/_partials/navbar");
+            $this->load->view("admin/pengumuman/tulisPengumuman");
+            $this->load->view("admin/_partials/footer.php");
+            $this->load->view("admin/_partials/modal");
+            $this->load->view("admin/_partials/js.php");
+        }  
     }
 
     public function add()
@@ -41,12 +56,14 @@ class Pengumuman extends CI_Controller {
             }
                 $this->load->view("admin/_partials/header");
                 $this->load->view("admin/_partials/navbar");
-                $this->load->view("admin/pengumuman");
+                $this->load->view("admin/pengumuman/tulisPengumuman");
                 $this->load->view("admin/_partials/js.php");
                 $this->load->view("admin/_partials/footer.php");
                 $this->load->view("admin/_partials/modal");
 
         }
+
+        redirect(site_url('admin/pengumuman'));
         
             
     }

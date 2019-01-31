@@ -40,11 +40,8 @@
                     <a href="<?php echo base_url('admin/registrasi'); ?>"><i class="fa fa-edit fa-fw"></i>Registrasi</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-files-o fa-fw"></i> Data Siswa <span class="fa arrow"></span></a>
+                    <a href="<?php echo base_url();?>admin/siswa"><i class="fa fa-files-o fa-fw"></i> Data Siswa <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="<?php echo base_url();?>admin/siswa">List Semua Siswa</a>
-                        </li>
                         <li>
                             <a href="<?php echo base_url();?>admin/siswa/add">Tambah Siswa</a>
                         </li>
@@ -61,6 +58,9 @@
                 </li>
                 <li>
                     <a href="<?php echo base_url('admin/pengumuman'); ?>"><i class="fa fa-edit fa-fw"></i>Pengumuman</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('admin/email'); ?>"><i class="fa fa-address-book fa-fw"></i>Email</a>
                 </li>
             </ul>
         </div>

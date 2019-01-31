@@ -61,7 +61,7 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                    <div class="huge"><?php echo $jumlahDitolak ?></div>
                                         <div>Ditolak</div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                    <div class="huge"><?php echo $jumlahVerifkasi ?></div>
                                         <div>Belom Verifikasi</div>
                                     </div>
                                 </div>

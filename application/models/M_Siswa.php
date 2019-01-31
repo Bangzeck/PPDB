@@ -224,6 +224,9 @@ class M_Siswa extends CI_Model
         return $this->db->delete($this->_table, array("id" => $id));
     }
 
+
+    // DASHBOARD
+    
     public function jumlahSiswa(){
         $sql = "SELECT count(id) as id FROM db_data_siswa";
         $result = $this->db->query($sql);
@@ -231,14 +234,22 @@ class M_Siswa extends CI_Model
     }
 
     public function jumlahDiterima(){
-        $sql = "SELECT count(status_pendaftaran) as status_pendaftaran FROM db_data_siswa";
+        $this->db->select("count(status_pendaftaran) as status_pendaftaran");
         $this->db->from($this->_table);
         $this->db->where('status_pendaftaran',"Diterima");
-        $result = $this->db->query($sql);
-        return $result->row()->status_pendaftaran;
-
-        // $query = $this->db->query("SELECT count(status_pendaftaran) FROM db_data_siswa WHERE status_pendaftaran = 'Diterima' ");
-        // return $query->num_rows();
+        return $this->db->get()->row()->status_pendaftaran;
+    }
+    public function jumlahDitolak(){
+        $this->db->select("count(status_pendaftaran) as status_pendaftaran");
+        $this->db->from($this->_table);
+        $this->db->where('status_pendaftaran',"Tidak Diterima");
+        return $this->db->get()->row()->status_pendaftaran;
+    }
+    public function jumlahVerifkasi(){
+        $this->db->select("count(status_pendaftaran) as status_pendaftaran");
+        $this->db->from($this->_table);
+        $this->db->where('status_pendaftaran',"Belum Diverifikasi");
+        return $this->db->get()->row()->status_pendaftaran;
     }
     
       
