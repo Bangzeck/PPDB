@@ -57,7 +57,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('admin/pengumuman'); ?>"><i class="fa fa-edit fa-fw"></i>Pengumuman</a>
+                    <a href="<?php echo base_url('admin/berita'); ?>"><i class="fa fa-edit fa-fw"></i>Berita</a>
                 </li>
                 <li>
                     <a href="<?php echo base_url('admin/email'); ?>"><i class="fa fa-address-book fa-fw"></i>Email</a>

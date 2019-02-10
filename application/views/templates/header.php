@@ -47,8 +47,12 @@
             <li class="menu-active"><a href="<?php echo base_url();?>#body">Home</a></li>
             <li><a href="<?php echo base_url();?>#about">Tentang Kita</a></li>
             <li><a href="#" data-toggle="modal" data-target="#daftarModal">Daftar</a></li>
-            <li><a href="<?php echo base_url();?>pages/view/pengumuman">Pengumuman</a></li>
+            <li><a href="<?php echo base_url('berita'); ?>">Berita</a></li>
+            <li><a href="<?php echo base_url('pengumuman'); ?>">Pengumuman</a></li>
             <li><a href="<?php echo base_url();?>#contact">Kontak</a></li>
+
+
+            
 
             </ul>
         </nav><!-- #nav-menu-container -->

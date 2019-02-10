@@ -3,6 +3,7 @@
 class M_Email extends CI_Model
 {
     private $_table = "db_email";
+    private $_user_table = "db_user";
 
     public $nama;
     public $email;
@@ -32,6 +33,25 @@ class M_Email extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function id($id)
+    {
+        $this->db->where('id', $id);
+        return $query= $this->db->get($this->_table)->result();
+
+    }
+
+    public function getEmail($id)
+    {
+        $this->db->where('id', 0);
+        return $query= $this->db->get($this->_user_table)->result();
+    }
+
+    public function idUser()
+    {
+        return  $this->db->get('db_user')->result();
+
+    }
+
     public function send()
     {
         $post = $this->input->post();
@@ -58,6 +78,11 @@ class M_Email extends CI_Model
 				$this->db->delete('db_email');
 			}
 		}
+    }
+
+    public function delete($id)
+    {
+        return $this->db->delete($this->_table, array("id" => $id));
     }
 
 

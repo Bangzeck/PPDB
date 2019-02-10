@@ -26,8 +26,12 @@ class Daftar extends CI_Controller {
             
             redirect('daftar');
         }else{
-            echo "Password dan Username Anda Salah";
+            echo "NISN Belum Di aktifkan / Tidak Terdaftar";
 
         }
     }
+
+
+
+
 }

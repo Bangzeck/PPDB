@@ -27,13 +27,17 @@ class Registrasi extends CI_Controller {
             $registrasi->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
+        
 		$this->load->view("templates/header");
-		$this->load->view("pages/registrasi");
+		$this->load->view("pages/registrasi", $data);
 		$this->load->view("templates/modal");
 		$this->load->view("templates/footer");
         
+        redirect(site_url('registrasi'));
     }
+
+    
+    
 
 
 

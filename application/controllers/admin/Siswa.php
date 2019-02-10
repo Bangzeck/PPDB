@@ -7,6 +7,7 @@ class Siswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_Siswa');
+        $this->load->model('M_Accept');
         $this->load->library('form_validation');
     }
 
@@ -31,7 +32,6 @@ class Siswa extends CI_Controller
     {   
         $session = $this->session->userdata('login'); 
         if($session != 'login'){
-            // $this->load->view('admin/login');
             redirect(site_url('admin/login'));
         }else{ 
             $data_siswa = $this->M_Siswa;
@@ -67,38 +67,41 @@ class Siswa extends CI_Controller
             $data_siswa->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
-
+        
         redirect(site_url('pages/view'));
 		
         
         
     }
 
-    public function edit($id = null)
-    {
-        if (!isset($id)) redirect('admin/data_siswa');
-       
-        $data_siswa = $this->M_Siswa;
-        $validation = $this->form_validation;
-        $validation->set_rules($data_siswa->rules());
 
-        if ($validation->run()) {
-            $data_siswa->update();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
 
-        $data["data_siswa"] = $data_siswa->getById($id);
-        if (!$data["data_siswa"]) show_404();
-        
-        $this->load->view("admin/_partials/header");
-        $this->load->view("admin/_partials/navbar");
-        $this->load->view("admin/data_siswa/edit", $data);
-        $this->load->view("admin/_partials/scrolltop.php");
-        $this->load->view("admin/_partials/modal.php");
-        $this->load->view("admin/_partials/js.php");
-        $this->load->view("admin/_partials/footer.php");
-    }
-
+    public function detailSiswa()
+     {  
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{
+                $data = $this->M_Siswa;
+                $validation = $this->form_validation;
+                $validation->set_rules($data->rules());
+    
+                $id=$this->uri->segment(4);
+                $data->detailSiswa = $this->M_Siswa->id($id);
+                // $data["detailSiswa"] = $this->M_Siswa->id($id);
+                if ($validation->run()) {
+                    $data->update();
+                    $this->session->set_flashdata('success', 'Berhasil disimpan');
+                    redirect(site_url('admin/siswa'));
+                }   
+                    $this->load->view("admin/_partials/header");
+                    $this->load->view("admin/_partials/navbar");
+                    $this->load->view("admin/siswa/detailSiswa", $data);
+                    $this->load->view("admin/_partials/js.php");
+                    $this->load->view("admin/_partials/footer.php");
+                    $this->load->view("admin/_partials/modal");                   
+            }
+     }
 
     public function diterima()
     {
@@ -150,6 +153,18 @@ class Siswa extends CI_Controller
     
         }
     }
+
+    
+
+
+    
+
+     public function klikDiterima()
+     {
+        $status_pendaftaran = $this->input->post('status_pendaftaran');
+        $this->M_Accept->klikTerima($status_pendaftaran,'status_pendaftaran'); 
+        redirect(site_url('admin/siswa'));
+     }
 
     
     

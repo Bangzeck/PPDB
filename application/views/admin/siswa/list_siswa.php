@@ -1,42 +1,49 @@
-<h2>LISH SISWA</h2>
-<table class="table table-striped table-bordered data">
-    <thead>
-        <tr>
-            <th>Nama</th>
-            <th>Nisn</th>
-            <th>Jenis Kelamin</th>
-            <th>Agama</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($siswa as $s): ?>
-        <tr>
-            <td width="160">
-                <?php echo $s->nama_siswa ?>
-            </td>
-            <td>
-                <?php echo $s->nisn ?>
-            </td>
-            <td>
-                <?php echo $s->jenis_kelamin ?>
-            </td>
+<div class="panel panel-default ">
+    <div class="panel-heading">
 
-            <td>
-                <?php echo $s->agama ?>
-            </td>
-            <td width="250">
-                <a href="<?php echo site_url('admin/siswa/edit/'.$s->id) ?>" class="btn btn-small"><i class="fas fa-edit"></i>
-                    Edit</a>
-                <a href="<?php echo site_url('admin/siswa/delete/'.$s->id) ?>" class="btn btn-small text-danger"><i
-                        class="fas fa-trash"></i> Hapus</a>
+        <h4 style="font-family:roboto; font-weight:bold">LIST SEMUA SISWA BARU</h4>
+    </div>
 
-                <!-- <a onclick="deleteConfirm('<?php echo site_url('admin/siswa/delete/'.$s->id) ?>')" href="#!" class="btn btn-small text-danger"><i
+    <div class="panel-body">
+        <table class="table table-striped table-bordered data">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Nisn</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Diterima/Ditolak</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($siswa as $s): ?>
+                <tr>
+                    <td width="160">
+                        <?php echo $s->nama_siswa ?>
+                    </td>
+                    <td>
+                        <?php echo $s->nisn ?>
+                    </td>
+                    <td>
+                        <?php echo $s->jenis_kelamin ?>
+                    </td>
+
+                    <td width="100">
+                        <?php echo $s->status_pendaftaran ?>
+                    </td>
+                    <td width="100">
+                        <a href="<?php echo site_url('admin/siswa/detailSiswa/'.$s->id) ?>"
+                            class="btn btn-primary"><i></i>
+                            Detail Siswa</a>
+                        <!-- <a onclick="deleteConfirm('<?php echo site_url('admin/siswa/delete/'.$s->id) ?>')" href="#!" class="btn btn-small text-danger"><i
                         class="fas fa-trash"></i> Hapus</a> -->
-            </td>
-        </tr>
-        <?php endforeach; ?>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
 
 
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+
+</div><br><br><br><br>

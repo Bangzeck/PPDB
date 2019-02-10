@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label class="control-label">NISN :</label>
                         <input maxlength="100" type="text" name="nisn" required="required" class="form-control" placeholder="Masukkan NISN"
-                            onKeyPress="return hanyaAngka(event);" />
+                            onKeyPress="return hanyaAngka(event);"/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Nama Siswa :</label>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Tanggal Lahir :</label>
-                        <input maxlength="100" type="text" name="tanggal_lahir" required="required" class="date form-control" placeholder="Contoh : 1996-05-08" />
+                        <input maxlength="100" type="date" name="tanggal_lahir" required="required" class="date form-control" placeholder="Contoh : 1996-05-08" />
                     </div>
                     <div class="form-group">
                         <label class="control-label">Agama :</label>

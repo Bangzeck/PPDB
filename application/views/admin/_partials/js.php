@@ -22,8 +22,15 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/datatables/jquery.dataTables.js"></script>
 
 
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $('.data').DataTable();
-        });
-        </script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.data').DataTable();
+});
+</script>
+
+
+<script type="text/javascript">
+$("#checkAll").click(function() {
+    $(".check").prop('checked', $(this).prop('checked'));
+});
+</script>

@@ -7,7 +7,9 @@ class Registrasi extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Registrasi');
+        $this->load->model('M_Kode');
         $this->load->library('form_validation');
+        $this->load->helper('form', 'url');
     }
     
 
@@ -27,25 +29,48 @@ class Registrasi extends CI_Controller {
         }
         
     }
+
+    public function detail()
+     {  
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{ 
+        $id=$this->uri->segment(4);
+        $data["detail"] = $this->M_Registrasi->id($id);
+        $this->load->view("admin/_partials/header");
+        $this->load->view("admin/_partials/navbar");
+        $this->load->view('admin/siswa/detailRegsitasi', $data);
+        $this->load->view("admin/_partials/footer");
+        $this->load->view("admin/_partials/modal", $data);
+        $this->load->view("admin/_partials/js");
+        }
+     }
+
+
+     public function addCode()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('kode', 'Kode','required|is_unique[db_kode_form.kode]');
+        if($this->form_validation->run() == TRUE){
+            $kode = $this->input->post('kode');
+            $this->M_Kode->codeInsert($kode,'kode'); 
+            redirect(site_url('admin/registrasi'));
+        }else{
+            redirect(site_url('admin/registrasi'));
+        }
+        
+
+    }
+
     
 
-	
-	public function add()
+    public function delete($id=null)
     {
-        $registrasi = $this->M_Registrasi;
-        $validation = $this->form_validation;
-        $validation->set_rules($registrasi->rules());
-
-        if ($validation->run()) {
-            $registrasi->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        if (!isset($id)) show_404();
+        if ($this->M_Registrasi->delete($id)) {
+            redirect(site_url('admin/registrasi'));
         }
-
-		$this->load->view("templates/header");
-		$this->load->view("pages/registrasi");
-		$this->load->view("templates/modal");
-		$this->load->view("templates/footer");
-        
     }
 
 

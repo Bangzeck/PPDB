@@ -73,14 +73,24 @@ class M_Siswa extends CI_Model
         ];
     }
 
+
     public function getAll()
     {
         return $this->db->get($this->_table)->result();
     }
     
-    public function getById($id)
+    public function id($id)
     {
-        return $this->db->get_where($this->_table, ["id" => $id])->row();
+        $this->db->where('id', $id);
+        return $query= $this->db->get($this->_table)->result();
+
+    }
+
+    public function nisn($nisn)
+    {
+        $this->db->where('nisn', $nisn);
+        return $query= $this->db->get($this->_table)->result();
+
     }
 
     public function save()
@@ -119,8 +129,6 @@ class M_Siswa extends CI_Model
         $this->status_sekolah = $post["status_sekolah"];
         $this->alamat_sekolah = $post["alamat_sekolah"];
         $this->tahun_lulus = $post["tahun_lulus"];
-        // $this->status_pendaftaran = $post["status_pendaftaran"];
-        // $this->tanggal_pendaftaran = $post["tanggal_pendaftaran"];
 
         $this->db->insert($this->_table, $this);
     }
@@ -162,18 +170,12 @@ class M_Siswa extends CI_Model
         $this->status_sekolah = $post["status_sekolah"];
         $this->alamat_sekolah = $post["alamat_sekolah"];
         $this->tahun_lulus = $post["tahun_lulus"];
-        // $this->status_pendaftaran = $post["status_pendaftaran"];
-        // $this->tanggal_pendaftaran = $post["tanggal_pendaftaran"];
+        $this->status_pendaftaran = $post["status_pendaftaran"];
+        $this->tanggal_pendaftaran = $post["tanggal_pendaftaran"];
 
         $this->db->update($this->_table, $this, array('id' => $post['id']));
     }
 
-
-    // public function getDiterima()
-    // {
-    //     $query = $this->db->query('SELECT nama_siswa, nisn , status_pendaftaran FROM db_data_siswa WHERE status_pendaftaran = "Diterima"');
-    //     $query->result_array();
-    // }   
 
 
     public function getDiterima() {
@@ -251,17 +253,16 @@ class M_Siswa extends CI_Model
         $this->db->where('status_pendaftaran',"Belum Diverifikasi");
         return $this->db->get()->row()->status_pendaftaran;
     }
+
+
+    function cek_user($nisn){
+        $this->db->where('nisn',$nisn);
+        $query = $this->db->get('db_data_siswa');
+        return $query->result_array();
+    }
+
+
     
       
 }
-
-
-        
-
-
-        // $query_depan="SELECT SUM(IF(status_pendaftaran='Diterima',1,0)) AS jml_diterima,
-        // SUM(IF(status_pendaftaran='Belum Diverifikasi',1,0)) AS jml_verifikasi, SUM(IF(status_pendaftaran='Tidak Diterima',1,0)) AS jml_ditolak  from ro_formulir";
-        // $perintah=mysqli_query($koneksi,$query_depan);
-        // $data=mysqli_fetch_array($perintah);
-        // //query tamu
 
