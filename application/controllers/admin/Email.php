@@ -31,22 +31,15 @@ class Email extends CI_Controller {
 
     public function kirim()
     {
-        $session = $this->session->userdata('login');
-        if($session != 'login'){
-            redirect(site_url('admin/login'));
-        }else{
-            $email = $this->M_Email;;
-            $validation = $this->form_validation;
-            $validation->set_rules($email->rules());
+        $email = $this->M_Email;;
+        $validation = $this->form_validation;
+        $validation->set_rules($email->rules());
 
-            if($validation->run()){
-                $email->send();
-                $this->session->set_flashdata('success', 'Berhasil Di simpan');
-            }
-                redirect(base_url());
-
-                
+        if($validation->run()){
+            $email->send();
+            $this->session->set_flashdata('success', 'Berhasil Di simpan');
         }
+            redirect(base_url());
     }
 
     public function detailEmail()

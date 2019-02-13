@@ -1,9 +1,9 @@
 <?php foreach ($detailSiswa as $d): ?>
 <div class="panel panel-default ">
     <div class="panel-heading">
-
         <h4 style="font-family:roboto; font-weight:bold">Detail Data Siswa (<?php echo $d->nama_siswa ?>) </h4>
     </div>
+
 
     <div class="panel-body">
         <form action="<?php echo base_url('admin/siswa/detailSiswa'); ?>" method="post" role="form">
@@ -35,14 +35,14 @@
                         <tr>
                             <td>ID</td>
                             <td>
-                                <input maxlength="100" type="text" name="id" required="required" class="form-control"
-                                    value="<?php echo $s->id;?>" placeholder="ID" />
+                                <input type="text" name="id" required="required" class="form-control"
+                                    value="<?php echo $s->id;?>" placeholder="ID" readonly />
                             </td>
                         </tr>
                         <tr>
                             <td>NISN</td>
                             <td>
-                                <input maxlength="100" type="text" name="nisn" required="required" class="form-control"
+                                <input maxlength="10" type="text" name="nisn" required="required" class="form-control"
                                     placeholder="Masukkan NISN" value="<?php echo $s->nisn ?>"
                                     onKeyPress="return hanyaAngka(event);" />
                             </td>
@@ -71,17 +71,16 @@
                             <td>Tempat Lahir</td>
                             <td>
 
-                                <input maxlength="100" type="text" name="tempat_lahir" required="required"
-                                    class="form-control" value="<?php echo $s->tempat_lahir;?>"
-                                    placeholder="Tempat Lahir" />
+                                <input type="text" name="tempat_lahir" required="required" class="form-control"
+                                    value="<?php echo $s->tempat_lahir;?>" placeholder="Tempat Lahir" />
                             </td>
                         </tr>
                         <tr>
                             <td>Tanggal Lahir</td>
                             <td>
 
-                                <input maxlength="100" type="date" name="tanggal_lahir" required="required"
-                                    class="date form-control" value="<?php echo $s->tanggal_lahir;?>" />
+                                <input type="date" name="tanggal_lahir" required="required" class="date form-control"
+                                    value="<?php echo $s->tanggal_lahir;?>" />
                             </td>
                         </tr>
                         <tr>
@@ -116,8 +115,8 @@
                             <td>Alamat Siswa</td>
                             <td>
 
-                                <textarea id="alamat_siswa" name="alamat_siswa" class="form-control" maxlength="100"
-                                    minlength="3" rows="3" required="required"
+                                <textarea id="alamat_siswa" name="alamat_siswa" class="form-control" minlength="10"
+                                    rows="3" required="required"
                                     placeholder="Masukan Alamat Siswa"><?php echo $s->alamat_siswa;?></textarea>
                             </td>
                         </tr>
@@ -137,7 +136,7 @@
                             <td>Nama Ayah</td>
                             <td>
                                 <input maxlength="200" type="text" name="nama_ayah" value="<?php echo $s->nama_ayah;?>"
-                                    required="required" class="form-control" placeholder="Nama Ayah" />
+                                    class="form-control" placeholder="Nama Ayah" />
                             </td>
                         </tr>
                         <tr>
@@ -145,7 +144,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pendidikan_ayah"
-                                    id="pendidikan_ayah" maxlength="20" required>
+                                    id="pendidikan_ayah" maxlength="20" >
                                     <option value="<?php echo $s->pendidikan_ayah;?>"><?php echo $s->pendidikan_ayah;?>
                                     </option>
                                     <option value="Tidak Sekolah">Tidak Sekolah</option>
@@ -164,7 +163,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pekerjaan_ayah"
-                                    id="pekerjaan_ayah" maxlength="20" required="">
+                                    id="pekerjaan_ayah" maxlength="20" >
                                     <option value="<?php echo $s->pekerjaan_ayah;?>"><?php echo $s->pekerjaan_ayah;?>
                                     </option>
                                     <option value="Buruh">Buruh</option>
@@ -183,7 +182,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="penghasilan_ayah"
-                                    id="penghasilan_ayah" maxlength="20" required="">
+                                    id="penghasilan_ayah" maxlength="20" >
                                     <option value="<?php echo $s->penghasilan_ayah;?>">
                                         <?php echo $s->penghasilan_ayah;?></option>
                                     <option value="-500rb">-500rb</option>
@@ -199,7 +198,7 @@
                             <td>Tlp/HP Ayah</td>
                             <td>
 
-                                <input maxlength="200" type="text" name="nomor_ayah" required="required"
+                                <input maxlength="200" type="text" name="nomor_ayah"
                                     class="form-control" value="<?php echo $s->nomor_ayah;?>"
                                     onKeyPress="return hanyaAngka(event);" placeholder="Masukan Nomor Handphone" />
                             </td>
@@ -210,7 +209,7 @@
 
 
                             <input maxlength="200" type="text" name="nama_ibu" value="<?php echo $s->nama_ibu;?>"
-                                required="required" class="form-control" placeholder="Nama Ibu" />
+                                class="form-control" placeholder="Nama Ibu" />
                         </td>
                         </tr>
                         <tr>
@@ -218,7 +217,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pendidikan_ibu"
-                                    id="pendidikan_ibu" required="">
+                                    id="pendidikan_ibu" >
                                     <option value="<?php echo $s->pendidikan_ibu;?>"><?php echo $s->pendidikan_ibu;?>
                                     </option>
                                     <option value="Tidak Sekolah">Tidak Sekolah</option>
@@ -237,7 +236,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pekerjaan_ibu" id="pekerjaan_ibu"
-                                    required="">
+                                    >
                                     <option value="<?php echo $s->pekerjaan_ibu;?>"><?php echo $s->pekerjaan_ibu;?>
                                     </option>
                                     <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
@@ -257,7 +256,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="penghasilan_ibu"
-                                    id="penghasilan_ibu" required="">
+                                    id="penghasilan_ibu" >
                                     <option value="<?php echo $s->penghasilan_ibu;?>"><?php echo $s->penghasilan_ibu;?>
                                     </option>
                                     <option value="-500rb">-500rb</option>
@@ -273,7 +272,7 @@
                             <td>Tlp/HP Ibu</td>
                             <td>
 
-                                <input maxlength="100" type="text" name="nomor_ibu" required="required"
+                                <input maxlength="100" type="text" name="nomor_ibu"
                                     class="form-control" value="<?php echo $s->nomor_ibu;?>"
                                     onKeyPress="return hanyaAngka(event);" placeholder="Masukkan Nomor Handphone" />
                             </td>
@@ -282,7 +281,7 @@
                         <td>
 
                             <input maxlength="200" type="text" name="nama_wali" value="<?php echo $s->nama_wali;?>"
-                                required="required" class="form-control" placeholder="Nama Wali" />
+                                 class="form-control" placeholder="Nama Wali" />
                         </td>
                         </tr>
                         <tr>
@@ -347,7 +346,7 @@
                             <td>
 
                                 <input maxlength="100" type="text" name="nomor_wali"
-                                    value="<?php echo $s->nomor_wali;?>" required="required" class="form-control"
+                                    value="<?php echo $s->nomor_wali;?>" class="form-control"
                                     onKeyPress="return hanyaAngka(event);" placeholder="Masukkan Nomor Handphone" />
                             </td>
                         </tr>
@@ -396,8 +395,8 @@
                         <td>Tahun Lulus</td>
                         <td>
 
-                            <input maxlength="200" type="text" name="tahun_lulus" value="<?php echo $s->tahun_lulus; ?>"
-                                required="required" class="form-control" placeholder="Tahun Lulus" />
+                            <input maxlength="4" type="text" name="tahun_lulus" value="<?php echo $s->tahun_lulus; ?>"
+                                required="required" class="form-control" placeholder="Tahun Lulus" onKeyPress="return hanyaAngka(event);" />
                         </td>
                         </tr>
                         <td>Tanggal Pendaftaran</td>
@@ -421,8 +420,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit" style="font-family:roboto ; margin-right: 40px;"
-                            class="btn btn-danger pull-left">Delete</button>
+                        <a href="<?php echo site_url('admin/siswa/delete/'.$s->id) ?>" class="btn btn-danger pull-left">
+                            Hapus</a>
                     </td>
                 </tr>
             </div>
@@ -432,7 +431,9 @@
         </form>
         <!-- /.table-responsive -->
     </div>
-
+    <div class="panel-footer">
+        SMK Bina Utama Kendal
+    </div>
 
 </div><br><br><br><br>
 

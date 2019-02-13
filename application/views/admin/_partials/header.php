@@ -33,6 +33,9 @@
     <!-- Morris Charts CSS -->
     <link href="<?php echo base_url();?>assets/admin/css/morris.css" rel="stylesheet">
 
+    <!-- CSS -->
+    <link href="<?php echo base_url();?>assets/admin/css/custom.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="<?php echo base_url();?>assets/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 

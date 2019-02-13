@@ -18,6 +18,9 @@
 <script src="<?php echo base_url();?>assets/js/javascript.js"></script>
 <script src="<?php echo base_url();?>assets/js/form-wizard.js"></script>
 
+
+<script src="<?php echo base_url();?>assets/js/custom.js"></script>
+
 </body>
 
 <br><br><br>

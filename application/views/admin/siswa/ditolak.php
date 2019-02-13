@@ -27,14 +27,10 @@
                     <td>
                         <?php echo $s->jenis_kelamin ?>
                     </td>
-                    <td width="250">
-                        <a href="<?php echo site_url(''.$s->id) ?>" class="btn btn-small"><i class="fas fa-edit"></i>
-                            Edit</a>
-                        <a href="<?php echo site_url(''.$s->id) ?>" class="btn btn-small text-danger"><i
-                                class="fas fa-trash"></i> Hapus</a>
-
-                        <!-- <a onclick="deleteConfirm('<?php echo site_url('admin/siswa/delete/'.$s->id) ?>')" href="#!" class="btn btn-small text-danger"><i
-                            class="fas fa-trash"></i> Hapus</a> -->
+                    <td width="100">
+                        <a href="<?php echo site_url('admin/siswa/detailSiswa/'.$s->id) ?>"
+                            class="btn btn-primary"><i></i>
+                            Detail Siswa</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

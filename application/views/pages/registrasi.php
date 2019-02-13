@@ -16,17 +16,23 @@
         </p>
     </div>
 
-    
+
     <form action="<?php echo base_url('registrasi/add'); ?>" method="post" role="form" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nisn">NISN *</label>
-            <input type="char" name="nisn" class="form-control" aria-describedby="nisn">
+            <input type="char" maxlength="10" name="nisn" class="form-control" aria-describedby="nisn"
+                placeholder="Nomor Induk Siswa Nasional">
 
         </div>
         <div class="form-group">
-            <label for="nomor_registrasi">Nomor Registrasi *</label>
-            <input type="char" class="form-control" name="nomor_registrasi" aria-describedby="nomor_registrasi"
-                placeholder="ex : 123456789">
+            <label for="nomor_registrasi">Nomor Registrasi Pembayaran *</label>
+            <input type="char" maxlength="20" class="form-control" name="nomor_registrasi" aria-describedby="nomor_registrasi"
+                placeholder="ex : 6274517846283780">
+        </div>
+        <div class="form-group">
+            <label for="nama_pengirim">Nama Pengirim *</label>
+            <input type="char" class="form-control" name="nama_pengirim" aria-describedby="nama_pengirim"
+                placeholder="Nama Pengirim">
         </div>
         <div class="form-group">
             <label for="email">Email *</label>
@@ -37,7 +43,7 @@
 
         <div class="form-group">
             <label for="file">Upload Bukti Registrasi *</label>
-            <input type="file" name="gambar" class="form-control-file">
+            <input style="width:200px" type="file" name="gambar" class="form-control-file">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

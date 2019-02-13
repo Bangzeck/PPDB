@@ -130,6 +130,11 @@ class M_Siswa extends CI_Model
         $this->alamat_sekolah = $post["alamat_sekolah"];
         $this->tahun_lulus = $post["tahun_lulus"];
 
+        $this->ipa = $post["ipa"];
+        $this->matematika = $post["matematika"];
+        $this->bahasa_indonesia = $post["bahasa_indonesia"];
+        $this->bahasa_inggris = $post["bahasa_inggris"];
+
         $this->db->insert($this->_table, $this);
     }
 
@@ -172,6 +177,11 @@ class M_Siswa extends CI_Model
         $this->tahun_lulus = $post["tahun_lulus"];
         $this->status_pendaftaran = $post["status_pendaftaran"];
         $this->tanggal_pendaftaran = $post["tanggal_pendaftaran"];
+
+        $this->ipa = $post["ipa"];
+        $this->matematika = $post["matematika"];
+        $this->bahasa_indonesia = $post["bahasa_indonesia"];
+        $this->bahasa_inggris = $post["bahasa_inggris"];
 
         $this->db->update($this->_table, $this, array('id' => $post['id']));
     }
@@ -221,11 +231,7 @@ class M_Siswa extends CI_Model
         return $results;
     }
 
-    public function delete($id)
-    {
-        return $this->db->delete($this->_table, array("id" => $id));
-    }
-
+    
 
     // DASHBOARD
     
@@ -259,6 +265,11 @@ class M_Siswa extends CI_Model
         $this->db->where('nisn',$nisn);
         $query = $this->db->get('db_data_siswa');
         return $query->result_array();
+    }
+
+    public function delete($id)
+    {
+        return $this->db->delete($this->_table, array("id" => $id));
     }
 
 

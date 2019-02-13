@@ -35,8 +35,6 @@
                         <a href="<?php echo site_url('admin/siswa/detailSiswa/'.$s->id) ?>"
                             class="btn btn-primary"><i></i>
                             Detail Siswa</a>
-                        <!-- <a onclick="deleteConfirm('<?php echo site_url('admin/siswa/delete/'.$s->id) ?>')" href="#!" class="btn btn-small text-danger"><i
-                        class="fas fa-trash"></i> Hapus</a> -->
                     </td>
                 </tr>
                 <?php endforeach; ?>

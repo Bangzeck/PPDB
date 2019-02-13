@@ -4,21 +4,24 @@
         <a class="navbar-brand" href="<?php echo base_url('admin'); ?>">SMK Bina Unggul</a>
     </div>
 
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-    </button>
+    </button> -->
     <ul class="nav navbar-right navbar-top-links">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-user fa-fw"></i> Hi Admin <b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                <li>
+                    <a href="<?php echo base_url('admin/user'); ?>"><i class="fa fa-user fa-fw"></i> User
+                        Profile</a>
                 </li>
-                <li><a href="<?php echo base_url('admin/setting'); ?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                <li>
+                    <a href="<?php echo base_url('admin/setting'); ?>"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -29,7 +32,7 @@
     </ul>
     <!-- /.navbar-top-links -->
 
-    <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
@@ -40,7 +43,7 @@
                     <a href="<?php echo base_url('admin/registrasi'); ?>"><i class="fa fa-edit fa-fw"></i>Registrasi</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url();?>admin/siswa"><i class="fa fa-files-o fa-fw"></i> Data Siswa <span class="fa arrow"></span></a>
+                    <a href="<?php echo base_url();?>admin/siswa"><i class="fa fa-files-o fa-fw"></i> Data Siswa</a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="<?php echo base_url();?>admin/siswa/add">Tambah Siswa</a>

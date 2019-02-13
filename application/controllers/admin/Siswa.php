@@ -41,6 +41,7 @@ class Siswa extends CI_Controller
             if ($validation->run()) {
                 $data_siswa->save();
                 $this->session->set_flashdata('success', 'Berhasil disimpan');
+                redirect(site_url('admin/siswa'));
             }
 
                 $this->load->view("admin/_partials/header");
@@ -68,7 +69,7 @@ class Siswa extends CI_Controller
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
         
-        redirect(site_url('pages/view'));
+        redirect(site_url('daftar_nisn'));
 		
         
         

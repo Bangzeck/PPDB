@@ -14,6 +14,11 @@
             </div>
         </div>
 
+        <div id="intro-carousel" class="owl-carousel">
+            <div class="item" style="background-image: url('img/intro-carousel/1.png');"></div>
+
+        </div>
+
     </section><!-- #intro -->
 
     <main id="main">
@@ -25,7 +30,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 about-img">
-                        <img src="<?php echo base_url();?>assets/img/about-img.jpg" alt="">
+                        <img style="width:690px; height:438px" src="<?php echo base_url();?>assets/img/about-img.png"
+                            alt="">
                     </div>
 
                     <div class="col-lg-6 content">
@@ -56,10 +62,10 @@
         <section id="testimonials" class="wow fadeInUp">
             <div class="container">
                 <div class="section-header">
-                    <h2>Testimonials</h2>
-                    <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet
-                        veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute
-                        nulla ipsum velit export irure minim illum fore</p>
+                    <h2>Alumni </h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
+                        sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
+                        fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla. </p>
                 </div>
                 <div class="owl-carousel testimonials-carousel">
 
@@ -67,13 +73,14 @@
                         <p>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
                                 alt="">
-                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                            Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
+                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
+                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
                             <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
                                 alt="">
                         </p>
                         <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                        <h3>Saul Goodman</h3>
+                        <h3>Sutarjo</h3>
                         <h4>Ceo &amp; Founder</h4>
                     </div>
 
@@ -81,14 +88,14 @@
                         <p>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
                                 alt="">
-                            Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum
-                            eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim
-                            culpa.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
+                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
+                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
                             <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
                                 alt="">
                         </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-2.jpg" class="testimonial-img" alt="">
-                        <h3>Sara Wilsson</h3>
+                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                        <h3>Paijo</h3>
                         <h4>Designer</h4>
                     </div>
 
@@ -96,13 +103,14 @@
                         <p>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
                                 alt="">
-                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis
-                            minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
+                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
+                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
                             <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
                                 alt="">
                         </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-3.jpg" class="testimonial-img" alt="">
-                        <h3>Jena Karlis</h3>
+                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                        <h3>Sarimin</h3>
                         <h4>Store Owner</h4>
                     </div>
 
@@ -110,14 +118,14 @@
                         <p>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
                                 alt="">
-                            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim
-                            velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum
-                            veniam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
+                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
+                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
                             <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
                                 alt="">
                         </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-4.jpg" class="testimonial-img" alt="">
-                        <h3>Matt Brandon</h3>
+                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                        <h3>Sulastri</h3>
                         <h4>Freelancer</h4>
                     </div>
 
@@ -125,14 +133,14 @@
                         <p>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
                                 alt="">
-                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam
-                            enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore
-                            nisi cillum quid.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
+                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
+                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.   
                             <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
                                 alt="">
                         </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-5.jpg" class="testimonial-img" alt="">
-                        <h3>John Larson</h3>
+                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                        <h3>Paimin</h3>
                         <h4>Entrepreneur</h4>
                     </div>
 
@@ -148,10 +156,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-left">
-                        <h3 class="cta-title">SMK Bina</h3>
-                        <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h3 class="cta-title">SMK Bina Utama</h3>
+                        <p class="cta-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
                         <a class="cta-btn align-middle" href="#" data-toggle="modal" data-target="#daftarModal"
@@ -169,10 +177,7 @@
         <section id="contact" class="wow fadeInUp">
             <div class="container">
                 <div class="section-header">
-                    <h2>Contact Us</h2>
-                    <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet
-                        veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute
-                        nulla ipsum velit export irure minim illum fore</p>
+                    <h2>Kontak</h2>
                 </div>
 
                 <div class="row contact-info">
@@ -219,27 +224,27 @@
                         class="contactForm">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" name="nama" class="form-control" id="nama" placeholder="Your Name"
+                                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Anda"
                                     data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                    placeholder="Email Anda" data-rule="email" data-msg="Please enter a valid email" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subjek" id="subjek" placeholder="subjek"
+                            <input type="text" class="form-control" name="subjek" id="subjek" placeholder="Judul"
                                 data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                             <div class="validation"></div>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" name="pesan" rows="5" data-rule="required"
-                                data-msg="Please write something for us" placeholder="Message"></textarea>
+                                data-msg="Please write something for us" placeholder="Pesan"></textarea>
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button data-toggle="modal" data-target="#cekEmail" type="submit">Send
+                        <div class="text-center"><button data-toggle="modal" data-target="#cekEmail" type="submit">Kirim
                                 Email</button></div>
                     </form>
                 </div>

@@ -47,6 +47,9 @@
                 <h4 style="font-family:roboto">NISN : <?php echo $d->nisn ?></h4>
             </td>
             <td>
+                <h4 style="font-family:roboto">Nama Pengirim : <?php echo $d->nama_pengirim ?></h4>
+            </td>
+            <td>
                 <h4 style="font-family:roboto">Email : <?php echo $d->email ?></h4><br><br>
             </td>
             <td>

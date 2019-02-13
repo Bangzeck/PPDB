@@ -38,6 +38,7 @@ class M_Registrasi extends CI_Model
         $post = $this->input->post();
         $this->nisn = $post["nisn"];
         $this->nomor_registrasi = $post["nomor_registrasi"];
+        $this->nama_pengirim = $post["nama_pengirim"];
         $this->email = $post["email"];
         $this->gambar = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
