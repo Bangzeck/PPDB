@@ -144,7 +144,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pendidikan_ayah"
-                                    id="pendidikan_ayah" maxlength="20" >
+                                    id="pendidikan_ayah" maxlength="20">
                                     <option value="<?php echo $s->pendidikan_ayah;?>"><?php echo $s->pendidikan_ayah;?>
                                     </option>
                                     <option value="Tidak Sekolah">Tidak Sekolah</option>
@@ -163,7 +163,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pekerjaan_ayah"
-                                    id="pekerjaan_ayah" maxlength="20" >
+                                    id="pekerjaan_ayah" maxlength="20">
                                     <option value="<?php echo $s->pekerjaan_ayah;?>"><?php echo $s->pekerjaan_ayah;?>
                                     </option>
                                     <option value="Buruh">Buruh</option>
@@ -182,7 +182,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="penghasilan_ayah"
-                                    id="penghasilan_ayah" maxlength="20" >
+                                    id="penghasilan_ayah" maxlength="20">
                                     <option value="<?php echo $s->penghasilan_ayah;?>">
                                         <?php echo $s->penghasilan_ayah;?></option>
                                     <option value="-500rb">-500rb</option>
@@ -198,9 +198,9 @@
                             <td>Tlp/HP Ayah</td>
                             <td>
 
-                                <input maxlength="200" type="text" name="nomor_ayah"
-                                    class="form-control" value="<?php echo $s->nomor_ayah;?>"
-                                    onKeyPress="return hanyaAngka(event);" placeholder="Masukan Nomor Handphone" />
+                                <input maxlength="200" type="text" name="nomor_ayah" class="form-control"
+                                    value="<?php echo $s->nomor_ayah;?>" onKeyPress="return hanyaAngka(event);"
+                                    placeholder="Masukan Nomor Handphone" />
                             </td>
                         </tr>
                         <td>Nama Ibu</td>
@@ -217,7 +217,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="pendidikan_ibu"
-                                    id="pendidikan_ibu" >
+                                    id="pendidikan_ibu">
                                     <option value="<?php echo $s->pendidikan_ibu;?>"><?php echo $s->pendidikan_ibu;?>
                                     </option>
                                     <option value="Tidak Sekolah">Tidak Sekolah</option>
@@ -235,8 +235,8 @@
                             <td>Pekerjaan Ibu</td>
                             <td>
 
-                                <select style="height:35px" class="form-control" name="pekerjaan_ibu" id="pekerjaan_ibu"
-                                    >
+                                <select style="height:35px" class="form-control" name="pekerjaan_ibu"
+                                    id="pekerjaan_ibu">
                                     <option value="<?php echo $s->pekerjaan_ibu;?>"><?php echo $s->pekerjaan_ibu;?>
                                     </option>
                                     <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
@@ -256,7 +256,7 @@
                             <td>
 
                                 <select style="height:35px" class="form-control" name="penghasilan_ibu"
-                                    id="penghasilan_ibu" >
+                                    id="penghasilan_ibu">
                                     <option value="<?php echo $s->penghasilan_ibu;?>"><?php echo $s->penghasilan_ibu;?>
                                     </option>
                                     <option value="-500rb">-500rb</option>
@@ -272,16 +272,16 @@
                             <td>Tlp/HP Ibu</td>
                             <td>
 
-                                <input maxlength="100" type="text" name="nomor_ibu"
-                                    class="form-control" value="<?php echo $s->nomor_ibu;?>"
-                                    onKeyPress="return hanyaAngka(event);" placeholder="Masukkan Nomor Handphone" />
+                                <input maxlength="100" type="text" name="nomor_ibu" class="form-control"
+                                    value="<?php echo $s->nomor_ibu;?>" onKeyPress="return hanyaAngka(event);"
+                                    placeholder="Masukkan Nomor Handphone" />
                             </td>
                         </tr>
                         <td>Nama Wali</td>
                         <td>
 
                             <input maxlength="200" type="text" name="nama_wali" value="<?php echo $s->nama_wali;?>"
-                                 class="form-control" placeholder="Nama Wali" />
+                                class="form-control" placeholder="Nama Wali" />
                         </td>
                         </tr>
                         <tr>
@@ -371,6 +371,7 @@
                                     placeholder="Asal Sekolah" />
                             </td>
                         </tr>
+
                         <tr>
                             <td>Status Sekolah</td>
                             <td>
@@ -383,6 +384,7 @@
                                 </select>
                             </td>
                         </tr>
+
                         <td>Alamat Sekolah</td>
                         <td>
 
@@ -390,13 +392,15 @@
                                 minlength="3" rows="3" required="required"
                                 placeholder="Masukan Alamat Sekolah"><?php echo $s->alamat_sekolah; ?></textarea>
                         </td>
+
                         </tr>
                         </tr>
                         <td>Tahun Lulus</td>
                         <td>
 
                             <input maxlength="4" type="text" name="tahun_lulus" value="<?php echo $s->tahun_lulus; ?>"
-                                required="required" class="form-control" placeholder="Tahun Lulus" onKeyPress="return hanyaAngka(event);" />
+                                required="required" class="form-control" placeholder="Tahun Lulus"
+                                onKeyPress="return hanyaAngka(event);" />
                         </td>
                         </tr>
                         <td>Tanggal Pendaftaran</td>
@@ -408,22 +412,70 @@
                         </tr>
 
 
+                        <td>Nilai </td>
+                        <td>
+
+                            <div class="col-md-3">
+                                <b>
+                                    <p>IPA :</p>
+                                </b>
+                                <input maxlength="100" type="text" name="ipa" class="form-control"
+                                    value="<?php echo $s->ipa;?>" onKeyPress="return hanyaAngka(event);"
+                                    placeholder="IPA" required="required" />
+                            </div>
+                            <div class="col-md-3">
+                                <b>
+                                    <p>Matematika :</p>
+                                </b>
+                                <input maxlength="100" type="text" name="matematika" class="form-control"
+                                    value="<?php echo $s->matematika;?>" onKeyPress="return hanyaAngka(event);"
+                                    placeholder="Matematika" required="required" />
+                            </div>
+                            <div class="col-md-3">
+                                <b>
+                                    <p>Bahasa Indonesia :</p>
+                                </b>
+                                <input maxlength="100" type="text" name="bahasa_indonesia" class="form-control"
+                                    value="<?php echo $s->bahasa_indonesia;?>" onKeyPress="return hanyaAngka(event);"
+                                    placeholder="Bahasa Indonesia" required="required" />
+                            </div>
+                            <div class="col-md-3">
+                                <b>
+                                    <p>Bahasa Inggris :</p>
+                                </b>
+                                <input maxlength="100" type="text" name="bahasa_inggris" class="form-control"
+                                    value="<?php echo $s->bahasa_inggris;?>" onKeyPress="return hanyaAngka(event);"
+                                    placeholder="Bahasa Inggris" required="required" />
+                            </div>
+                        </td>
+                        <td>
+                            <input maxlength="200" type="text" value="<?php echo $average; ?>" class="form-control"
+                                readonly />
+                        </td>
+
+
                     </tbody>
 
 
                 </table>
                 <tr>
                     <td>
-                        <button type="submit" style="font-family:roboto ; margin-right: 40px;"
+                        <button type="submit" style="font-family:roboto"
                             class="btn btn-success pull-right">Simpan</button>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>
                         <a href="<?php echo site_url('admin/siswa/delete/'.$s->id) ?>" class="btn btn-danger pull-left">
                             Hapus</a>
                     </td>
-                </tr>
+                </tr> -->
+
+                <td>
+                    <a href="#" data-toggle="modal" data-target="#hapusSiswa"><button type="button"
+                            style="font-family:roboto ; margin-right: 40px;"
+                            class="btn btn-danger pull-left">Hapus</button></a>
+                </td>
             </div>
 
             <?php endforeach; ?>

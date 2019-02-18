@@ -1,43 +1,61 @@
 </div>
-<!-- Footer -->
-<footer class="page-footer font-small mdb-color pt-4">
-        <hr>        
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-11">
-
-                <!--Copyright-->
-                <p class="text-center text-md-left">© 2018 Copyright:
-                    <a href="https://getbootstrap.com/">
-                        <strong>Bootstrap</strong>
-                    </a>
-                </p>
-
-            </div>
-
-</footer>
-<!-- Footer -->
-
 </div>
-<!-- /#page-wrapper -->
 
-</div>
-<!-- /#wrapper -->
 
-<script src="<?php echo base_url();?>assets/lib/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/jquery/jquery-migrate.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/easing/easing.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/superfish/hoverIntent.js"></script>
-<script src="<?php echo base_url();?>assets/lib/superfish/superfish.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/wow/wow.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/magnific-popup/magnific-popup.min.js"></script>
-<script src="<?php echo base_url();?>assets/lib/sticky/sticky.js"></script>
+<!-- jQuery -->
+<script src="<?php echo base_url();?>/assets/admin/vendor/jquery/jquery.min.js"></script>
 
-<!-- Template Main Javascript File -->
+<!-- Bootstrap Core JavaScript -->
+<script src="<?php echo base_url();?>/assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="<?php echo base_url();?>/assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="<?php echo base_url();?>/assets/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="<?php echo base_url();?>/assets/admin/vendor/dist/js/sb-admin-2.js"></script>
+<!-- Date Picke -->
+<script src="<?php echo base_url();?>/assets/admin/vendor/datepicker/js/bootstrap-datepicker.js"></script>
+
 <script src="<?php echo base_url();?>assets/js/main.js"></script>
 <script src="<?php echo base_url();?>assets/js/javascript.js"></script>
 <script src="<?php echo base_url();?>assets/js/form-wizard.js"></script>
+
+
+
+<script src="<?php echo base_url();?>assets/admin/js/dataTables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/dataTables/dataTables.bootstrap.min.js"></script>
+
+
+
+
+
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.data').DataTable();
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#dataTables-example').DataTable({
+        responsive: true
+    });
+});
+</script>
+
+
+<script type="text/javascript">
+$("#checkAll").click(function() {
+    $(".check").prop('checked', $(this).prop('checked'));
+});
+</script>
 </body>
 
 </html>

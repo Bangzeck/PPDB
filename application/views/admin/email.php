@@ -17,6 +17,7 @@
                             </label>
                             &nbsp&nbsp&nbsp
                             <button class="btn btn-danger" type="submit" name="action" value="delete">Delete</button>
+                            
 
                             <div class="panel-body no-padding">
                                 <div class="table-responsive">

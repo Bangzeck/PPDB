@@ -31,6 +31,18 @@ class M_Registrasi extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
+
+    public function getById($id)
+    {
+        return $this->db->get_where($this->_table, ["id" => $id])->row();
+    }
+
+    public function id($id)
+    {
+        $this->db->where('id', $id);
+        return $query= $this->db->get($this->_table)->result();
+
+    }
     
     
     public function save()
@@ -44,45 +56,36 @@ class M_Registrasi extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
+    
+    private function _uploadImage()
+    {
+        $config['upload_path']          = './upload/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['overwrite']			= true;
+        $config['max_size']             = 1024; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('gambar')) {
+                return $this->upload->data("file_name");
+            }
+    
+    }
+
     public function delete($id)
     {   $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("id" => $id));
     }
 
-    private function _uploadImage()
-    {
-    $config['upload_path']          = './upload/';
-    $config['allowed_types']        = 'gif|jpg|png';
-    $config['overwrite']			= true;
-    $config['max_size']             = 1024; // 1MB
-    // $config['max_width']            = 1024;
-    // $config['max_height']           = 768;
-
-    $this->load->library('upload', $config);
-
-    if ($this->upload->do_upload('gambar')) {
-        return $this->upload->data("file_name");
-    }
-    
-    }
-    public function getById($id)
-    {
-        return $this->db->get_where($this->_table, ["id" => $id])->row();
-    }
-
-    public function id($id)
-    {
-        $this->db->where('id', $id);
-        return $query= $this->db->get($this->_table)->result();
-
-    }
 
     private function _deleteImage($id)
     {
         $foto = $this->getById($id);
         if ($foto->image != "default.jpg") {
             $filename = explode(".", $foto->gambar)[0];
-            return array_map('unlink', glob(FCPATH."upload/siswa/$filename.*"));
+            return array_map('unlink', glob(FCPATH."upload/$filename.*"));
         }
     }
 

@@ -16,6 +16,11 @@ class M_Kode extends CI_Model
         ];
     } 
 
+    public function kode($kode)
+    {   
+        $this->db->where('kode', $kode);
+        return $query= $this->db->get($this->_table)->result();
+    }
 
     public function codeInsert()
     {  

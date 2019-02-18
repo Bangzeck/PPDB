@@ -23,9 +23,11 @@ class Pages extends CI_Controller {
         }
         $data["berita"] = $this->M_Berita->getAll();
         $data['title'] = ucfirst($page); // Capitalize the first letter
+
         $data["sekolah"] = $this->M_Sekolah->getAll();
         $data["pengumuman"] = $this->M_Setting->getPengumuman();
         $data["daftar"] = $this->M_Setting->getDaftar();
+
         $this->load->view('templates/header', $data);
         $this->load->view('pages/'.$page, $data);
         $this->load->view('templates/modal', $data);
@@ -80,6 +82,8 @@ class Pages extends CI_Controller {
         $this->load->view('templates/modal');
         $this->load->view('templates/footer');
     }
+
+    
 
     
 

@@ -3,6 +3,7 @@
 class M_Siswa extends CI_Model
 {
     private $_table = "db_data_siswa";
+    private $_table_nilai = "db_nilai_un";
 
     public $nisn;
     public $nama_siswa;
@@ -39,6 +40,13 @@ class M_Siswa extends CI_Model
     public $tahun_lulus;
     public $status_pendaftaran;
     public $tanggal_pendaftaran;
+
+    public $ipa;
+    public $matematika;
+    public $bahasa_indonesia;
+    public $bahasa_inggris;
+
+
 
     public function rules()
     {
@@ -80,7 +88,7 @@ class M_Siswa extends CI_Model
     }
     
     public function id($id)
-    {
+    {   
         $this->db->where('id', $id);
         return $query= $this->db->get($this->_table)->result();
 
@@ -134,6 +142,7 @@ class M_Siswa extends CI_Model
         $this->matematika = $post["matematika"];
         $this->bahasa_indonesia = $post["bahasa_indonesia"];
         $this->bahasa_inggris = $post["bahasa_inggris"];
+
 
         $this->db->insert($this->_table, $this);
     }
@@ -202,6 +211,8 @@ class M_Siswa extends CI_Model
         return $results;
     }
 
+
+
     public function getDitolak() {
         $results = array();
         $this->db->select('id, nama_siswa, nisn, status_pendaftaran, jenis_kelamin');
@@ -259,6 +270,9 @@ class M_Siswa extends CI_Model
         $this->db->where('status_pendaftaran',"Belum Diverifikasi");
         return $this->db->get()->row()->status_pendaftaran;
     }
+
+    
+    
 
 
     function cek_user($nisn){

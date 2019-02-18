@@ -20,11 +20,11 @@ class Dashboard extends CI_Controller {
             $data["jumlahDitolak"] = $this->M_Siswa->jumlahDitolak();
             $data["jumlahVerifkasi"] = $this->M_Siswa->jumlahVerifkasi();
             $this->load->view("admin/_partials/header");     
-            $this->load->view("admin/dashboard", $data);
             $this->load->view("admin/_partials/navbar");
-            $this->load->view("admin/_partials/footer");
-            $this->load->view("admin/_partials/js");
+            $this->load->view("admin/dashboard", $data);
             $this->load->view("admin/_partials/modal");
+            $this->load->view("admin/_partials/js");
+            $this->load->view("admin/_partials/footer");
         }
     }
 

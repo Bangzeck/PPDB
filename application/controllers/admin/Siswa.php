@@ -59,18 +59,23 @@ class Siswa extends CI_Controller
     // Tambah yang dilakukan peserta
 
     public function addPeserta()
-    {
-        $data_siswa = $this->M_Siswa;
-        $validation = $this->form_validation;
-        $validation->set_rules($data_siswa->rules());
-
-        if ($validation->run()) {
-            $data_siswa->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+    {   $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{
+            $data_siswa = $this->M_Siswa;
+            $validation = $this->form_validation;
+            $validation->set_rules($data_siswa->rules());
+    
+            if ($validation->run()) {
+                $data_siswa->save();
+                $this->session->set_flashdata('success', 'Berhasil disimpan');
+            }
+            
+            redirect(site_url('daftar_nisn'));
+                             
         }
         
-        redirect(site_url('daftar_nisn'));
-		
         
         
     }
@@ -89,19 +94,20 @@ class Siswa extends CI_Controller
     
                 $id=$this->uri->segment(4);
                 $data->detailSiswa = $this->M_Siswa->id($id);
-                // $data["detailSiswa"] = $this->M_Siswa->id($id);
+                $data->average = $this->M_Siswa->average($id);
                 if ($validation->run()) {
                     $data->update();
                     $this->session->set_flashdata('success', 'Berhasil disimpan');
                     redirect(site_url('admin/siswa'));
                 }   
+                    $data->siswa = $this->M_Siswa->id($id);
                     $this->load->view("admin/_partials/header");
                     $this->load->view("admin/_partials/navbar");
                     $this->load->view("admin/siswa/detailSiswa", $data);
                     $this->load->view("admin/_partials/js.php");
                     $this->load->view("admin/_partials/footer.php");
                     $this->load->view("admin/_partials/modal");                   
-            }
+        }
      }
 
     public function diterima()
@@ -155,17 +161,6 @@ class Siswa extends CI_Controller
         }
     }
 
-    
-
-
-    
-
-     public function klikDiterima()
-     {
-        $status_pendaftaran = $this->input->post('status_pendaftaran');
-        $this->M_Accept->klikTerima($status_pendaftaran,'status_pendaftaran'); 
-        redirect(site_url('admin/siswa'));
-     }
 
     
     

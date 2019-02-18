@@ -13,7 +13,6 @@
                     <th>Nisn</th>
                     <th>Nomor Registrasi</th>
                     <th>Nama Pengirim</th>
-                    <th>Gambar</th>
                     <th>E-mail</th>
                     <th>Action</th>
                 </tr>
@@ -31,13 +30,10 @@
                         <?php echo $s->nama_pengirim ?>
                     </td>
                     <td>
-                        <?php echo $s->gambar?>
-                    </td>
-                    <td>
                         <?php echo $s->email ?>
                     </td>
 
-                    <td>
+                    <td width="50">
                         <a href="<?php echo base_url();?>admin/registrasi/detail/<?php echo $s->id ?>"><button
                                 type="button" style="font-family:roboto" class="btn btn-primary">
                                 Detail</button></a>

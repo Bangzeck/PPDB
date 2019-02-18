@@ -15,7 +15,6 @@
     </form>
 
     <?php
-
     }else{?>
     <h1>Maaf Pendaftaran Belum Di Buka</h1>
     <?php

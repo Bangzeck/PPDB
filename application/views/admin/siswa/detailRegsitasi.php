@@ -31,8 +31,9 @@
                         style="font-family:roboto" class="btn btn-danger pull-right">Hapus</button></a>
             </td>
             <td>
-            <a href="#" data-toggle="modal" data-target="#addModalRegistrasi"><button type="button"
-                        style="font-family:roboto ; margin-right: 40px;" class="btn btn-success pull-right">Tambah</button></a>
+                <a href="#" data-toggle="modal" data-target="#addModalRegistrasi"><button type="button"
+                        style="font-family:roboto ; margin-right: 40px;"
+                        class="btn btn-success pull-right">Tambah</button></a>
             </td>
         </tr>
         <h4 style="font-family:roboto; font-weight:bold">Bukti Pembayaran</h4>

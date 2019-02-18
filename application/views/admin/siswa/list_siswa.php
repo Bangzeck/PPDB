@@ -5,7 +5,7 @@
     </div>
 
     <div class="panel-body">
-        <table class="table table-striped table-bordered data">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
                     <th>Nama</th>
@@ -33,13 +33,10 @@
                     </td>
                     <td width="100">
                         <a href="<?php echo site_url('admin/siswa/detailSiswa/'.$s->id) ?>"
-                            class="btn btn-primary"><i></i>
-                            Detail Siswa</a>
+                            class="btn btn-primary pull-left"><i></i>Detail Siswa</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
-
-
             </tbody>
         </table>
     </div>

@@ -2,7 +2,6 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<br><br>
 
 
 <div class="panel panel-default ">
@@ -300,7 +299,7 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label class="control-label">No. Telp / HP Wali</label>
-                            <input maxlength="100" type="text" name="nomor_wali" 
+                            <input maxlength="14" type="text" name="nomor_wali" 
                                 class="form-control" onKeyPress="return hanyaAngka(event);"
                                 placeholder="Masukkan Nomor Handphone" />
                         </div>

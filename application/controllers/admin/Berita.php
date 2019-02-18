@@ -52,7 +52,10 @@ class Berita extends CI_Controller {
 
             if ($validation->run()) {
                 $data->save();
+
                 $this->session->set_flashdata('success', 'Berhasil disimpan');
+
+                
             }
                 $this->load->view("admin/_partials/header");
                 $this->load->view("admin/_partials/navbar");
@@ -101,7 +104,6 @@ class Berita extends CI_Controller {
         
             
     }
-
 
 
 

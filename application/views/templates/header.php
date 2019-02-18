@@ -38,8 +38,7 @@
         <div class="container">
 
         <div id="logo" class="pull-left">
-            <!-- <h1><a href="#body" class="scrollto">SMK<span>Bina Utama</span></a></h1> -->
-            <!-- Uncomment below if you prefer to use an image logo -->
+            
             <a href="<?php echo base_url();?>#body"><img style="height: 60px;" src="<?php echo base_url();?>assets/img/binautama.png" alt="" title="" /></a>
         </div>
         <nav id="nav-menu-container">
@@ -55,6 +54,8 @@
             
 
             </ul>
-        </nav><!-- #nav-menu-container -->
+        </nav>
         </div>
-    </header><!-- #header -->
+    </header>
+
+    

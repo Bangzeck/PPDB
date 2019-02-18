@@ -20,14 +20,13 @@
                         <div>
                             <tr>
                                 <td><br><br><br><br>
-                                <a class="btn btn-success pull-right"
+                                    <a class="btn btn-success pull-right"
                                         href="<?php echo site_url('admin/email/tulisBalas/'.$d->id) ?>">Balas</a>
                                 </td>
+
                                 <td>
-
-                                    <a class="btn btn-danger pull-left"
-                                        href="<?php echo site_url('admin/email/delete/'.$d->id) ?>">Delete</a>
-
+                                    <a href="#" data-toggle="modal" data-target="#hapusEmail"><button type="button"
+                                            class="btn btn-danger">Hapus</button></a>
                                 </td>
                             </tr>
 
