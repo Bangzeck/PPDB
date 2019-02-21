@@ -42,13 +42,10 @@
                                         autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password">
+                                    <input class="form-control" placeholder="Password" name="password" id="password" type="password">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
+                                <input type="checkbox" onclick="myFunction()">Show Password
+                                <br><br>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button class="btn btn-lg btn-success btn-block">Login</button>
                                 <br>
@@ -62,6 +59,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    </script>
 
     <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/lib/jquery/jquery.min.js"></script>

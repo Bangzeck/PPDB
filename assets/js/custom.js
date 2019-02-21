@@ -9,6 +9,9 @@ $(document).ready(function(){
     });
 
 
+});
 
 
+$(document).ready(function() {
+    $(".kunci").lock();
 });

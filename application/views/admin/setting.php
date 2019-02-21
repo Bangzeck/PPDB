@@ -26,7 +26,7 @@
                                 <option value="Tutup">Tutup</option>
                             </select><br>
 
-                            <label class="control-label">Daftar</label>
+                            <label class="control-label">Daftar dan Registrasi</label>
                             <select style="height:35px" class="form-control" name="daftar" id="pengumuman">
                                 <option value="<?php echo $s->daftar ?>"><?php echo $s->daftar ?></option>
                                 <option value="Buka">Buka</option>

@@ -21,7 +21,7 @@
 
             </div>
             <div class="form-group col-md-3">
-                <label for="nomor_registrasi">Nomor Registrasi Pembayaran *</label>
+                <label for="nomor_registrasi">Nomor Registrasi *</label>
                 <input type="char" maxlength="20" class="form-control" name="nomor_registrasi"
                     aria-describedby="nomor_registrasi" placeholder="ex : 6274517846283780" onKeyPress="return hanyaAngka(event);">
             </div>

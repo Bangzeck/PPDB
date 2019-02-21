@@ -4,6 +4,13 @@ class M_Daftar extends CI_Model{
     function __construct(){
         parent::__construct();
     }
+
+    public function kode($kode)
+    {   
+        $this->db->where('kode', $kode);
+        return $query= $this->db->get('db_kode_form')->result();
+
+    }
     function cek_user($kode){
         $this->db->where('kode',$kode);
         $query = $this->db->get('db_kode_form');

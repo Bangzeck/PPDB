@@ -8,7 +8,7 @@
     <section id="intro">
 
         <div class="intro-content">
-            <h2>SMK <span>Buna Utama</span><br>Kendal</h2>
+            <h2>SMK <span>Bina Utama</span><br>Kendal</h2>
             <div>
                 <a href="#" data-toggle="modal" data-target="#daftarModal" class="btn-get-started scrollto">Daftar</a>
             </div>

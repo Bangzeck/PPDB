@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2019 at 07:51 AM
+-- Generation Time: Feb 18, 2019 at 05:32 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -41,8 +41,8 @@ CREATE TABLE `db_berita` (
 --
 
 INSERT INTO `db_berita` (`id`, `judul`, `gambar`, `isi`, `tanggal`) VALUES
-(65, 'What is Lorem Ipsum?', 'background-wallpaper-hd-6176504.jpg', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '2019-02-14 15:00:42'),
-(66, 'Browser Makanan', 'Contoh-Brosur-Makanan-25.jpg', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p>MAKANAN</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '2019-02-15 16:46:18');
+(65, 'What is Lorem Ipsum?', 'lorem.jpg', '<h2>What&nbsp;</h2>\r\n\r\n<p><strong>&nbsp; &nbsp; Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '2019-02-18 16:31:12'),
+(66, 'Browser Makanan', 'Contoh-Brosur-Makanan-25.jpg', '<h3>&nbsp; &nbsp; &nbsp; &nbsp;What is Lorem Ipsum?</h3>\r\n\r\n<blockquote>\r\n<p><strong>&nbsp; &nbsp; &nbsp;Lorem Ipsum</strong>&nbsp;<em>is simply dummy text of the printing</em><s> and typesetting industry.</s><samp> Lorem Ipsum has been</samp> the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</blockquote>\r\n\r\n<h3>&nbsp; &nbsp; &nbsp; Why do we use it?</h3>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '2019-02-18 07:47:49');
 
 -- --------------------------------------------------------
 
@@ -94,8 +94,8 @@ CREATE TABLE `db_data_siswa` (
 --
 
 INSERT INTO `db_data_siswa` (`id`, `nisn`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_keluarga`, `alamat_siswa`, `nomor_siswa`, `nama_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nomor_ayah`, `nama_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nomor_ibu`, `nama_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `nomor_wali`, `npsn_sekolah`, `nama_sekolah`, `status_sekolah`, `alamat_sekolah`, `tahun_lulus`, `status_pendaftaran`, `tanggal_pendaftaran`, `ipa`, `matematika`, `bahasa_indonesia`, `bahasa_inggris`) VALUES
-(40, '9998548459', 'Haris', 'Laki - laki', 'Semarang', '2019-02-14', 'Islam', 'Anak kandung', '41DSfvdftvybvjdhsgf', '213141414141', '', '', '', '', '', '', '', '', '', '100', '', '', '', '', '', '13131412', 'SMA IT Ihsanul Fikri', 'Swasta', 'dasfasf', 2015, 'Diterima', '2019-02-14 14:41:15', 99, 100, 100, 100),
-(41, '1234567891', 'Zakki Abdurrahma Haris', 'Laki - laki', 'Semarang', '2019-02-13', 'Islam', 'Anak kandung', 'Jl. Semarang No.1', '123456465465', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '12456464', 'Magelang', 'Negeri', 'Magelang City', 2015, 'Diterima', '2019-02-14 15:16:31', 0, 0, 0, 0);
+(40, '9998548459', 'Haris', 'Laki - laki', 'Semarang', '2019-02-14', 'Islam', 'Anak kandung', '41DSfvdftvybvjdhsgf', '111111111111', '', '', '', '', '', '', '', '', '', '100', '', '', '', '', '', '13131412', 'SMA IT Ihsanul Fikri', 'Swasta', 'dasfasf', 2015, 'Diterima', '2019-02-14 14:41:15', 99, 100, 100, 100),
+(41, '1234567891', 'Zakki Abdurrahma Haris', 'Laki - laki', 'Semarang', '2019-02-13', 'Islam', 'Anak kandung', 'Jl. Semarang No.1', '123456465465', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '12456464', 'Magelang', 'Negeri', 'Magelang City', 2015, 'Belum Diverifikasi', '2019-02-14 15:16:31', 99, 80, 80, 70);
 
 -- --------------------------------------------------------
 
@@ -111,6 +111,13 @@ CREATE TABLE `db_email` (
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `pesan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `db_email`
+--
+
+INSERT INTO `db_email` (`id`, `nama`, `email`, `subjek`, `tanggal`, `pesan`) VALUES
+(1, 'Zakki Haris', 'zakyharis33@gmail.com', 'Apasaja boleh', '2019-02-18 07:53:19', 'Bismillah');
 
 -- --------------------------------------------------------
 
@@ -129,7 +136,8 @@ CREATE TABLE `db_kode_form` (
 
 INSERT INTO `db_kode_form` (`id`, `kode`) VALUES
 (1, 14045),
-(17, 12121212);
+(17, 12121212),
+(18, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -275,7 +283,7 @@ ALTER TABLE `db_user`
 -- AUTO_INCREMENT for table `db_berita`
 --
 ALTER TABLE `db_berita`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `db_data_siswa`
@@ -287,13 +295,13 @@ ALTER TABLE `db_data_siswa`
 -- AUTO_INCREMENT for table `db_email`
 --
 ALTER TABLE `db_email`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `db_kode_form`
 --
 ALTER TABLE `db_kode_form`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `db_registrasi`

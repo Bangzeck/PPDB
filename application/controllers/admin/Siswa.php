@@ -8,6 +8,7 @@ class Siswa extends CI_Controller
         parent::__construct();
         $this->load->model('M_Siswa');
         $this->load->model('M_Accept');
+        $this->load->model('M_Kode');
         $this->load->library('form_validation');
     }
 
@@ -59,26 +60,37 @@ class Siswa extends CI_Controller
     // Tambah yang dilakukan peserta
 
     public function addPeserta()
-    {   $session = $this->session->userdata('login'); 
-        if($session != 'login'){
-            $this->load->view('pages/login');
+    {   
+        $kode = $this->security->xss_clean($this->input->post("nisn"));
+        $cek = $this->M_Kode->cek_kode($kode);
+
+        // var_dump(count($cek));
+        // exit;
+
+        if (count($cek) == 1) {
+
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('nisn', 'Nisn','required|is_unique[db_data_siswa.nisn]');
+
+            if($this->form_validation->run() == TRUE){
+                $data_siswa = $this->M_Siswa;
+                $validation = $this->form_validation;
+                $validation->set_rules($data_siswa->rules());
+                
+                if ($validation->run()) {
+                    $data_siswa->save();
+                    $this->session->set_flashdata('success', 'Berhasil disimpan');               
+                }
+                redirect(); 
+            }else{
+                redirect(site_url('daftar_nisn')); 
+            }    
         }else{
-            $data_siswa = $this->M_Siswa;
-            $validation = $this->form_validation;
-            $validation->set_rules($data_siswa->rules());
-    
-            if ($validation->run()) {
-                $data_siswa->save();
-                $this->session->set_flashdata('success', 'Berhasil disimpan');
-            }
-            
-            redirect(site_url('daftar_nisn'));
-                             
+            redirect(site_url('daftar_nisn')); 
         }
-        
-        
-        
+                
     }
+ 
 
 
 
@@ -94,7 +106,7 @@ class Siswa extends CI_Controller
     
                 $id=$this->uri->segment(4);
                 $data->detailSiswa = $this->M_Siswa->id($id);
-                $data->average = $this->M_Siswa->average($id);
+
                 if ($validation->run()) {
                     $data->update();
                     $this->session->set_flashdata('success', 'Berhasil disimpan');

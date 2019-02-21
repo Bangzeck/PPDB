@@ -124,7 +124,7 @@
                             <td>HP</td>
                             <td>
 
-                                <input maxlength="100" type="text" name="nomor_siswa" class="form-control"
+                                <input maxlength="14" type="text" name="nomor_siswa" class="form-control"
                                     onKeyPress="return hanyaAngka(event);" value="<?php echo $s->nomor_siswa;?>"
                                     placeholder="Masukkan Nomor Handphone" />
                             </td>
@@ -198,7 +198,7 @@
                             <td>Tlp/HP Ayah</td>
                             <td>
 
-                                <input maxlength="200" type="text" name="nomor_ayah" class="form-control"
+                                <input maxlength="14" type="text" name="nomor_ayah" class="form-control"
                                     value="<?php echo $s->nomor_ayah;?>" onKeyPress="return hanyaAngka(event);"
                                     placeholder="Masukan Nomor Handphone" />
                             </td>
@@ -272,7 +272,7 @@
                             <td>Tlp/HP Ibu</td>
                             <td>
 
-                                <input maxlength="100" type="text" name="nomor_ibu" class="form-control"
+                                <input maxlength="14" type="text" name="nomor_ibu" class="form-control"
                                     value="<?php echo $s->nomor_ibu;?>" onKeyPress="return hanyaAngka(event);"
                                     placeholder="Masukkan Nomor Handphone" />
                             </td>
@@ -345,7 +345,7 @@
                             <td>Tlp/HP Wali</td>
                             <td>
 
-                                <input maxlength="100" type="text" name="nomor_wali"
+                                <input maxlength="14" type="text" name="nomor_wali"
                                     value="<?php echo $s->nomor_wali;?>" class="form-control"
                                     onKeyPress="return hanyaAngka(event);" placeholder="Masukkan Nomor Handphone" />
                             </td>
@@ -448,12 +448,6 @@
                                     placeholder="Bahasa Inggris" required="required" />
                             </div>
                         </td>
-                        <td>
-                            <input maxlength="200" type="text" value="<?php echo $average; ?>" class="form-control"
-                                readonly />
-                        </td>
-
-
                     </tbody>
 
 

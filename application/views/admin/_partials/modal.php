@@ -133,9 +133,9 @@
             <div class="modal-body">Jika ingin menghapus silahkan klik "Hapus", jika tidak silahkan klik "Batal" </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <?php foreach ($detailEmail as $d): ?>
-                <a class="btn btn-danger" href="<?php echo site_url('admin/email/delete/'.$d->id) ?>">Delete</a>
-                <?php endforeach; ?>
+
+                <a class="btn btn-danger" href="<?php echo site_url('admin/email/delete/'.$detailEmail->id) ?>">Delete</a>
+
 
             </div>
         </div>

@@ -14,12 +14,18 @@ class M_Kode extends CI_Model
             'label' => 'Kode',
             'rules' => 'required']
         ];
-    } 
+    }
 
-    public function kode($kode)
-    {   
-        $this->db->where('kode', $kode);
-        return $query= $this->db->get($this->_table)->result();
+    public function getAll()
+    {
+        return $this->db->get($this->_table)->result();
+    }
+
+
+    function cek_kode($kode){
+        $this->db->where('kode',$kode);
+        $query = $this->db->get('db_kode_form');
+        return $query->result_array();
     }
 
     public function codeInsert()
@@ -27,6 +33,12 @@ class M_Kode extends CI_Model
         $post = $this->input->post();
         $this->kode = $post["kode"];
         $this->db->insert($this->_table, $this);
+    }
+
+
+    public function delete($id)
+    {   
+        return $this->db->delete($this->_table, array("id" => $id));
     }
 
 

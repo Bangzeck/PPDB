@@ -25,7 +25,12 @@
 
             <div class="panel-body">
                 <div class="thumbnail">
+                    <?php if(empty($p->gambar)){
+
+                        }else{?>
                     <img class="zoom" src="<?php echo base_url();?>upload/berita/<?php echo $p->gambar ?>" />
+                    <?php } ?>
+
                 </div>
                 <p><?= $p->isi?></p>
             </div>

@@ -59,17 +59,15 @@ class M_Berita extends CI_Model
     
     }
 
-    public function update()
-    {
-        $post = $this->input->post();
-        
+    public function update($id, $data)
+    {   
+        $post = $this->input->post();     
         $this->judul = $post["judul"];
         $this->isi = $post["isi"];
-        $this->gambar = $this->_uploadImage();
-        
-        $this->db->update($this->_table, $this, array('id' => $post['id']));
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
     }
-
+    
 
     public function id($id)
     {
@@ -87,7 +85,6 @@ class M_Berita extends CI_Model
     {   $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("id" => $id));
     }
-
 
     private function _deleteImage($id)
     {

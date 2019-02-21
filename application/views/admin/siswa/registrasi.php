@@ -1,7 +1,10 @@
 <div class="panel panel-default ">
     <div class="panel-heading">
-
+        <a href="<?php echo base_url();?>admin/registrasi/view_code/"><button class="btn btn-info pull-right">Lihat Semua Kode
+                Formulir</button></a>
         <h4 style="font-family:roboto; font-weight:bold">REGISTRASI</h4>
+
+
     </div>
 
     <div class="panel-body">
@@ -11,7 +14,7 @@
             <thead style="font-family:roboto">
                 <tr>
                     <th>Nisn</th>
-                    <th>Nomor Registrasi</th>
+                    <th>Nomor Rekening Pengirim</th>
                     <th>Nama Pengirim</th>
                     <th>E-mail</th>
                     <th>Action</th>
@@ -24,7 +27,7 @@
                         <?php echo $s->nisn ?>
                     </td>
                     <td>
-                        <?php echo $s->nomor_registrasi ?>
+                        <?php echo $s->nomor_registrasi?>
                     </td>
                     <td>
                         <?php echo $s->nama_pengirim ?>

@@ -25,4 +25,10 @@
 
 <br><br><br>
 
+<script>
+	$(document).ready(function() {
+		$(".kunci").lock();
+	});
+</script>
+
 </html>

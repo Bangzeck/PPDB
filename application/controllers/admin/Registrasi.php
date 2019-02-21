@@ -47,6 +47,23 @@ class Registrasi extends CI_Controller {
         }
      }
 
+     public function view_code()
+     {  
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{ 
+
+        $data["code"] = $this->M_Kode->getAll();
+        $this->load->view("admin/_partials/header");
+        $this->load->view("admin/_partials/navbar");
+        $this->load->view('admin/siswa/lihat_kode_form', $data);
+        $this->load->view("admin/_partials/footer");
+        $this->load->view("admin/_partials/modal", $data);
+        $this->load->view("admin/_partials/js");
+        }
+     }
+
 
      public function addCode()
     {
@@ -63,13 +80,19 @@ class Registrasi extends CI_Controller {
 
     }
 
-    
-
     public function delete($id=null)
     {
         if (!isset($id)) show_404();
         if ($this->M_Registrasi->delete($id)) {
             redirect(site_url('admin/registrasi'));
+        }
+    }
+
+    public function deleteCode($id=null)
+    {
+        if (!isset($id)) show_404();
+        if ($this->M_Kode->delete($id)) {
+            redirect(site_url('admin/registrasi/view_code'));
         }
     }
 

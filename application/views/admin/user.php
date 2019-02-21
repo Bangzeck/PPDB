@@ -37,7 +37,7 @@
                             </td>
                             <label class="control-label">Password</label>
                             <td>
-                                <input class="form-control" type="password" name="password" id="password" required="">
+                                <input class="form-control"  type="password" name="password" id="password" required="">
                             </td><br>
                             <input type="checkbox" onclick="myFunction()">Show Password
 

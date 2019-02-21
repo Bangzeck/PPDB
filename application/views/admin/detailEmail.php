@@ -13,8 +13,8 @@
                     <div class="panel rounded shadow panel-teal">
 
                         <?php foreach ($detailEmail as $d):?>
-                        <h2>From : <?php echo $d->nama ?></h2>
-                        <h3>Email : <?php echo $d->email ?>&nbsp&nbsp&nbsp<?php echo $d->tanggal ?></h3>
+                        <h3>From : <?php echo $d->nama ?></h3>
+                        <h3>Email : <?php echo $d->email ?>&nbsp&nbsp&nbsp(<?php echo $d->tanggal ?>)</h3>
                         <h4>Subjek : <?php echo $d->subjek ?></h4>
                         <h5>Pesan : <?php echo $d->pesan ?></h5>
                         <div>

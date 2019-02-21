@@ -29,13 +29,11 @@
                     <td>
                         <?php echo $s->tanggal ?>
                     </td>
-                    <td width="130">
+                    <td width="100">
                         <a href="<?php echo site_url('admin/berita/edit/'.$s->id) ?>"><button
-                                class="btn btn-primary">Edit</button></a>
-
-                        <a href="#" data-toggle="modal" data-target="#hapusBerita"><button type="button"
-                                class="btn btn-danger">Hapus</button></a>
-                    </td></a>
+                                class="btn btn-primary">Detail Berita</button></a>
+                        
+                    </td>
                 </tr>
                 <?php endforeach; ?>
 
