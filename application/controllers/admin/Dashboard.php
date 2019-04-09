@@ -18,7 +18,6 @@ class Dashboard extends CI_Controller {
             $data["jumlahSiswa"] = $this->M_Siswa->jumlahSiswa();
             $data["jumlahDiterima"] = $this->M_Siswa->jumlahDiterima();
             $data["jumlahDitolak"] = $this->M_Siswa->jumlahDitolak();
-            $data["jumlahVerifkasi"] = $this->M_Siswa->jumlahVerifkasi();
             $this->load->view("admin/_partials/header");     
             $this->load->view("admin/_partials/navbar");
             $this->load->view("admin/dashboard", $data);
@@ -26,6 +25,17 @@ class Dashboard extends CI_Controller {
             $this->load->view("admin/_partials/js");
             $this->load->view("admin/_partials/footer");
         }
+    }
+
+
+    public function user()
+    {
+        $data['user'] = $this->admin->hitungJumlahUser();
+ 
+        $this->load->view('dashboard', $data);
+
+        var_dumb($data);
+        exit;
     }
 
 }

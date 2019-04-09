@@ -1,17 +1,18 @@
 <body id="body">
 
 
-
     <!--==========================
     Intro Section
   ============================-->
     <section id="intro">
 
         <div class="intro-content">
-            <h2>SMK <span>Bina Utama</span><br>Kendal</h2>
+            <?php foreach($sekolah as $s): ?>
+            <h2><?php echo $s->nama ?></h2>
             <div>
                 <a href="#" data-toggle="modal" data-target="#daftarModal" class="btn-get-started scrollto">Daftar</a>
             </div>
+            <?php endforeach; ?>
         </div>
 
         <div id="intro-carousel" class="owl-carousel">
@@ -22,40 +23,6 @@
     </section><!-- #intro -->
 
     <main id="main">
-
-        <!--==========================
-      About Section
-    ============================-->
-        <section id="about" class="wow fadeInUp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 about-img">
-                        <img style="width:690px; height:438px" src="<?php echo base_url();?>assets/img/about-img.png"
-                            alt="">
-                    </div>
-
-                    <div class="col-lg-6 content">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-                        <h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.</h3>
-
-                        <ul>
-                            <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</li>
-                            <li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in
-                                voluptate velit.</li>
-                            <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                        </ul>
-
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- #about -->
-
-
         <!--==========================
       Testimonials Section
     ============================-->
@@ -63,118 +30,67 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Alumni </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
-                        sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
-                        fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla. </p>
+                    
                 </div>
                 <div class="owl-carousel testimonials-carousel">
-
+                    <?php foreach($alumni as $a): ?>
                     <div class="testimonial-item">
                         <p>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
-                                alt="">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
-                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
-                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
+                                alt=""><?php echo $a->kutipan ?>
                             <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
                                 alt="">
                         </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                        <h3>Sutarjo</h3>
-                        <h4>Ceo &amp; Founder</h4>
+                        <img  src="<?php echo base_url();?>upload/alumni/<?php echo $a->gambar ?>"
+                            class="testimonial-img" alt="">
+                        <h3><?php echo $a->nama ?></h3>
+                        <h4><?php echo $a->titel ?></h4>
                     </div>
 
-                    <div class="testimonial-item">
-                        <p>
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
-                                alt="">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
-                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
-                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
-                                alt="">
-                        </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                        <h3>Paijo</h3>
-                        <h4>Designer</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
-                                alt="">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
-                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
-                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
-                                alt="">
-                        </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                        <h3>Sarimin</h3>
-                        <h4>Store Owner</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
-                                alt="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
-                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
-                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
-                                alt="">
-                        </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                        <h3>Sulastri</h3>
-                        <h4>Freelancer</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-left.png" class="quote-sign-left"
-                                alt="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet sapien. Ut
-                            sollicitudin tincidunt massa vel fermentum. Nunc semper tempor lorem non viverra. Aliquam
-                            fringilla magna et nibh euismod, sed lacinia nibh rhoncus. Fusce eget pellentesque nulla.   
-                            <img src="<?php echo base_url();?>assets/img/quote-sign-right.png" class="quote-sign-right"
-                                alt="">
-                        </p>
-                        <img src="<?php echo base_url();?>assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                        <h3>Paimin</h3>
-                        <h4>Entrepreneur</h4>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
 
             </div>
-        </section><!-- #testimonials -->
+        </section>
 
-        <!--==========================
-      Call To Action Section
-    ============================-->
-        <section id="call-to-action" class="wow fadeInUp">
+        <section id="pengumuman" class="row fadeInUp pengumuman">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-left">
-                        <h3 class="cta-title">SMK Bina Utama</h3>
-                        <p class="cta-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <h3 class="cta-title">Pengumuman Seleksi</h3>
+                        <?php if ($pengumuman != "Tutup") {?>
+                        <form action="<?php echo base_url('pages/detailPengumuman'); ?>" method="post" role="form">
+                            <div class="form-group">
+                                <label style="color:white" for="kode">Masukkan NISN</label>
+                                <input type="char" class="form-control" name="nisn" id="nisn" aria-describedby="nisn"
+                                    placeholder="Nomor Indusk Siswa">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <h5 class="border border-danger" style="text-align:center; font-weight:bold; color:red">
+                                <?php echo $this->session->flashdata('pendaftar');?></h5>
+                            <button type="submit" class="btn btn-primary">Lihat</button>
+                        </form>
+                        <?php
+
+                        }else{?>
+                        <?php foreach($sekolah as $s): ?>
+                        <h3 style="color:white"><?php echo $s->pengumuman ?></h3>
+                        <?php endforeach ?>
+                        <?php
+                        } ?>
                     </div>
-                    <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#" data-toggle="modal" data-target="#daftarModal"
-                            class="btn-get-started scrollto">Daftar</a>
-                    </div>
+
                 </div>
 
             </div>
-        </section><!-- #call-to-action -->
+        </section>
 
 
         <!--==========================
       Contact Section
     ============================-->
-        <section id="contact" class="wow fadeInUp">
+        <section id="contact" class="row fadeInUp">
             <div class="container">
                 <div class="section-header">
                     <h2>Kontak</h2>
@@ -182,6 +98,7 @@
 
                 <div class="row contact-info">
                     <?php foreach($sekolah as $s): ?>
+
                     <div class="col-md-4">
                         <div class="contact-address">
                             <i class="ion-ios-location-outline"></i>
@@ -210,9 +127,11 @@
             </div>
 
             <div class="container mb-4">
+                <?php foreach($maps as $m): ?>         
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15842.875044765957!2d110.1913404!3d-6.9241838!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9418345c08254aba!2sSMK+Bina+Utama+Kendal!5e0!3m2!1sid!2sid!4v1547650266696"
-                    width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    src="<?php echo $m->link ?>"
+                    width="<?php echo $m->width ?>%" height="<?php echo $m->height ?>" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <?php endforeach; ?>
             </div>
 
 

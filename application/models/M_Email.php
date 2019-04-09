@@ -9,6 +9,7 @@ class M_Email extends CI_Model
     public $email;
     public $subjek;
     public $pesan;
+    public $tanggal;
 
     public function rules()
     {
@@ -29,7 +30,8 @@ class M_Email extends CI_Model
 
 
     public function getAll()
-    {
+    {   
+        $this->db->order_by("tanggal", "asc");
         return $this->db->get($this->_table)->result();
     }
 
@@ -61,6 +63,20 @@ class M_Email extends CI_Model
         $this->pesan = $post['pesan'];
         $this->db->insert($this->_table, $this);
         
+    }
+
+    public function UpdateEmail($id)
+    {
+        $post = $this->input->post();
+        $this->nama = $post['nama'];
+        $this->email = $post['emailKepada'];
+        $this->subjek = $post['subjek'];
+        $this->pesan = $post['pesan'];
+        $this->status = 1;
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $this);
+
+      
     }
 
     public function jumlahPesan(){

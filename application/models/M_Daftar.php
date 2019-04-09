@@ -17,4 +17,11 @@ class M_Daftar extends CI_Model{
         return $query->result_array();
     }
 
+    function cek_siswa($kode){
+        $this->db->select('nisn');
+        $this->db->where('nisn',$kode);
+        $query = $this->db->get('db_data_siswa');
+        return $query->result_array();
+    }
+
 }

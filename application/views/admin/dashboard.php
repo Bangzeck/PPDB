@@ -84,7 +84,7 @@
                             <i class="fa fa-file-text fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge"><?php echo $jumlahVerifkasi ?></div>
+                            <div class="huge"></div>
                             <div>Belom Verifikasi</div>
                         </div>
                     </div>

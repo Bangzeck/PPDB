@@ -5,9 +5,7 @@ class M_Accept extends CI_Model
     private $_table = "db_data_siswa";
 
 
-    public $status_pendaftaran;
- 
-    
+    public $status_pendaftaran; 
 
     // Diterima atau Ditolak
 

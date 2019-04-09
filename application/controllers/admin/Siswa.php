@@ -2,7 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Siswa extends CI_Controller
-{
+{   
+    private $filename = "Data_Siswa";
+
     public function __construct()
     {
         parent::__construct();
@@ -24,6 +26,7 @@ class Siswa extends CI_Controller
             $this->load->view("admin/_partials/footer.php");
             $this->load->view("admin/_partials/modal");
             $this->load->view("admin/_partials/js.php");
+
         }
     }
 
@@ -156,25 +159,8 @@ class Siswa extends CI_Controller
         }
     }
     
-    public function belom_verifikasi()
-	{
-		$session = $this->session->userdata('login'); 
-        if($session != 'login'){
-            $this->load->view('pages/login');
-        }else{ 
-            $data["verifikasi"] = $this->M_Siswa->getVerifikasi();
-            $this->load->view("admin/_partials/header");
-            $this->load->view("admin/_partials/navbar");
-            $this->load->view("admin/siswa/belom_verifikasi", $data);
-            $this->load->view("admin/_partials/footer.php");
-            $this->load->view("admin/_partials/modal");
-            $this->load->view("admin/_partials/js.php");
-    
-        }
-    }
 
 
-    
     
     public function delete($id=null)
     {
@@ -184,4 +170,195 @@ class Siswa extends CI_Controller
             redirect(site_url('admin/siswa'));
         }
     }
-}
+
+    // Export MySql to Exel (xsl)
+    public function export()
+    {
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $excel = new PHPExcel();
+
+        $excel->getProperties()->setCreator('SMK Bina Utama')
+                 ->setLastModifiedBy('SMK Bina Utama')
+                 ->setTitle("DATA PESERTA DIDIK BARU")
+                 ->setSubject("SISWA")
+                 ->setDescription("Laporan Semua Data Calon Siswa")
+                 ->setKeywords("Data Calon Siswa");
+
+        $style_col = array(
+
+                    'font' => array('bold' => true),
+                    'alignment' => array(
+                      'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER, 
+                      'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER
+                    ),
+                    'borders' => array(
+                      'top' => array('style'  => PHPExcel_Style_Border::BORDER_THIN),
+                      'right' => array('style'  => PHPExcel_Style_Border::BORDER_THIN),
+                      'bottom' => array('style'  => PHPExcel_Style_Border::BORDER_THIN),
+                      'left' => array('style'  => PHPExcel_Style_Border::BORDER_THIN)
+                    )
+        );
+
+
+        $style_row = array(
+            'alignment' => array(
+              'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER 
+            ),
+            'borders' => array(
+              'top' => array('style'  => PHPExcel_Style_Border::BORDER_THIN), 
+              'right' => array('style'  => PHPExcel_Style_Border::BORDER_THIN), 
+              'bottom' => array('style'  => PHPExcel_Style_Border::BORDER_THIN),
+              'left' => array('style'  => PHPExcel_Style_Border::BORDER_THIN) 
+            )
+        );
+
+        $excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA CALON SISWA"); 
+        $excel->getActiveSheet()->mergeCells('A1:E1'); 
+        $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); 
+        $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); 
+        $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
+
+
+        $excel->setActiveSheetIndex(0)->setCellValue('A3', "NO");
+        $excel->setActiveSheetIndex(0)->setCellValue('B3', "NAMA");
+        $excel->setActiveSheetIndex(0)->setCellValue('C3', "NISN");
+        $excel->setActiveSheetIndex(0)->setCellValue('D3', "JENIS KELAMIN"); 
+        $excel->setActiveSheetIndex(0)->setCellValue('E3', "DITERIMA/DITOLAK"); 
+        
+        $excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('B3')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('C3')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('D3')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('E3')->applyFromArray($style_col);
+
+
+         
+        $siswa = $this->M_Siswa->getAll();
+        $no = 1; 
+        $numrow = 4; 
+        foreach($siswa as $data){ 
+        $excel->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $no);
+        $excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->nama_siswa);
+        $excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->nisn);
+        $excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->jenis_kelamin);
+        $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->status_pendaftaran);
+        
+
+        $excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
+        $excel->getActiveSheet()->getStyle('B'.$numrow)->applyFromArray($style_row);
+        $excel->getActiveSheet()->getStyle('C'.$numrow)->applyFromArray($style_row);
+        $excel->getActiveSheet()->getStyle('D'.$numrow)->applyFromArray($style_row);
+        $excel->getActiveSheet()->getStyle('E'.$numrow)->applyFromArray($style_row);
+        
+        $no++; 
+        $numrow++; 
+        }
+
+
+  
+        $excel->getActiveSheet()->getColumnDimension('A')->setWidth(5); 
+        $excel->getActiveSheet()->getColumnDimension('B')->setWidth(15); 
+        $excel->getActiveSheet()->getColumnDimension('C')->setWidth(25); 
+        $excel->getActiveSheet()->getColumnDimension('D')->setWidth(20); 
+        $excel->getActiveSheet()->getColumnDimension('E')->setWidth(30); 
+        
+       
+        $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
+
+        $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+
+        $excel->getActiveSheet(0)->setTitle("Laporan Data Siswa");
+        $excel->setActiveSheetIndex(0);
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Data Siswa.xlsx"');
+        header('Cache-Control: max-age=0');
+        $write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+        $write->save('php://output');
+
+
+    }
+
+
+    //Import Exel To MySql
+    //Menampilakn Halaman Uploadnya.
+
+    public function view_upload()
+    {
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            redirect(site_url('admin/login'));
+        }else{ 
+            $this->load->view("admin/_partials/header");
+            $this->load->view("admin/_partials/navbar");
+            $this->load->view("admin/siswa/upload_excel");
+            $this->load->view("admin/_partials/js.php");
+            $this->load->view("admin/_partials/footer.php");
+            $this->load->view("admin/_partials/modal");
+
+        }
+    }
+    //membuat form untuk upload filenya.
+    public function form()
+    {
+        $data = array();
+
+        if (isset($_POST['preview'])) {
+            $upload = $this->M_Siswa->upload_file_excel($this->filename);
+
+            if ($upload['result'] == "success") {
+                include APPPATH. 'third_party/PHPExcel/PHPExcel.php';
+
+                $excelreader = new PHPExcel_Reader_Excel2007();
+                $loadexcel = $excelreader->load('upload/excel/'.$this->filename.'.xlsx');
+                $sheet = $loadexcel->getActiveSheet()->toArray(null, true ,true , true);
+
+                $data['sheet'] = $sheet;
+            }else{
+                $data['upload_error'] = $upload['error'];
+            }
+        }
+
+        $this->load->view("admin/_partials/header");
+        $this->load->view("admin/_partials/navbar");
+        $this->load->view("admin/siswa/upload_excel", $data);
+        $this->load->view("admin/_partials/js.php");
+        $this->load->view("admin/_partials/footer.php");
+        $this->load->view("admin/_partials/modal");
+    }
+
+    // Untuk Import Filenya.
+    public function import()
+    {
+        include APPPATH. 'third_party/PHPExcel/PHPExcel.php';
+
+        $excelreader = new PHPExcel_Reader_Excel2007();
+        $loadexcel = $excelreader->load('upload/excel/'.$this->filename.'.xlsx');
+        $sheet = $loadexcel->getActiveSheet()->toArray(null, true ,true , true);
+
+        $data = array();
+
+        $numrow = 1;
+        foreach($sheet as $row) {
+
+            if ($numrow > 1) {
+                array_push($data, array(
+                    'nisn' => $row['A'],
+                    'nilai_ujian' => $row['C'],
+                    'status_pendaftaran' => $row['D'],
+                    
+                ));
+            }
+            $numrow++;
+        }
+        // var_dump($data);
+        // exit;
+        $this->M_Siswa->update_multiple($data);
+
+        redirect('admin/siswa');
+
+    }
+
+
+} 

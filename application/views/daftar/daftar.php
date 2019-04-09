@@ -60,6 +60,7 @@
                         <label class="control-label">Jenis Kelamin : *</label>
                         <select style="height:35px" class="form-control" name="jenis_kelamin" type="text"
                             name="jenis_kelamin" id="jenis_kelamin" required>
+                            <option value="">Pilih</option>
                             <option value="Laki - laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
@@ -108,9 +109,8 @@
                         <label class="control-label">Alamat Siswa : *</label>
                         <textarea id="alamat_siswa" name="alamat_siswa" class="form-control" minlength="3" rows="3"
                             required="required" placeholder="Masukan Alamat Siswa"></textarea>
-
+                        <h3>* required</h3>
                     </div>
-
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
                 </div>
             </div>
@@ -313,8 +313,9 @@
 
                     <div class="form-group col-md-4">
                         <label class="control-label">Status Sekolah : *</label>
-                        <select style="height:35px" class="form-control" name="status_sekolah" id="status_sekolah">
-                            <option value="">Pilih</option>
+                        <select style="height:35px" class="form-control" name="status_sekolah" id="status_sekolah"
+                            required>
+                            <option></option>
                             <option value="Negeri">Negeri</option>
                             <option value="Swasta">Swasta</option>
                         </select>
@@ -333,6 +334,7 @@
                         <label class="control-label">Alamat Sekolah : *</label>
                         <textarea id="alamat_sekolah" name="alamat_sekolah" class="form-control" required="required"
                             placeholder="Masukan Alamat Sekolah"></textarea>
+                        <h3>* required</h3>
                     </div>
 
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
@@ -365,7 +367,9 @@
                         <label class="control-label">Bahasa Inggris : *</label>
                         <input maxlength="3" type="text" name="bahasa_inggris" required="required" class="form-control"
                             placeholder="Masukkan Nilai" onKeyPress="return hanyaAngka(event);" />
+
                     </div>
+                    <h3>* required</h3>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
                 </div>
             </div>
@@ -377,6 +381,11 @@
             <div class="col-xs-12">
                 <div class="col-md-12">
                     <h3>Langkah 6</h3>
+                    <h4>Pastika Formulir telah di isi dengan benar, karena NISN hanya dapat digunakan satu kali untuk
+                        mengisi formulir</h4><br>
+                    <h5>Jika ingin melihat form sebelumnya silahkan pilih nomor yang diinginkan.</h5><br>
+                    <h5>Jika tombol Finish Tidak bisa di klik pastika form yang bertanda bintang " * " terisi dengan
+                        benar.</h5>
                     <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
                 </div>
             </div>

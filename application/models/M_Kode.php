@@ -3,6 +3,7 @@
 class M_Kode extends CI_Model
 {
     private $_table = "db_kode_form";
+    private $_table_registrasi = "db_registrasi";
 
 
     public $kode;
@@ -36,9 +37,9 @@ class M_Kode extends CI_Model
     }
 
 
-    public function delete($id)
+    public function delete($nisn)
     {   
-        return $this->db->delete($this->_table, array("id" => $id));
+        return $this->db->delete($this->_table, array("kode" => $nisn));
     }
 
 

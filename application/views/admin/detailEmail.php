@@ -13,10 +13,11 @@
                     <div class="panel rounded shadow panel-teal">
 
                         <?php foreach ($detailEmail as $d):?>
-                        <h3>From : <?php echo $d->nama ?></h3>
-                        <h3>Email : <?php echo $d->email ?>&nbsp&nbsp&nbsp(<?php echo $d->tanggal ?>)</h3>
-                        <h4>Subjek : <?php echo $d->subjek ?></h4>
-                        <h5>Pesan : <?php echo $d->pesan ?></h5>
+                        <h4>From : <?php echo $d->nama ?></h4>
+                        <h4>Email : <?php echo $d->email ?>&nbsp&nbsp&nbsp(<?php echo $d->tanggal ?>)</h4>
+                        <hr>
+                        <h4>Subjek : <?php echo $d->subjek ?></h4><br>
+                        <h4>Pesan : <?php echo $d->pesan ?></h4>
                         <div>
                             <tr>
                                 <td><br><br><br><br>

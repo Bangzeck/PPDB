@@ -14,6 +14,8 @@
 <!-- DataTables JavaScript -->
 <script src="<?php echo base_url();?>/assets/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/dataTables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/dataTables/dataTables.bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url();?>/assets/admin/vendor/dist/js/sb-admin-2.js"></script>
@@ -26,8 +28,7 @@
 
 
 
-<script src="<?php echo base_url();?>assets/admin/js/dataTables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url();?>assets/admin/js/dataTables/dataTables.bootstrap.min.js"></script>
+
 
 
 

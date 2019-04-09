@@ -5,6 +5,7 @@ class Login extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('M_Login');
+        $this->load->library('session');
     }
     public function index(){
         $session = $this->session->userdata('login'); 
@@ -26,8 +27,8 @@ class Login extends CI_Controller {
             ));
             redirect('admin');
         }else{
-            echo "Password dan Username Anda Salah";
-
+            $this->session->set_flashdata('login', 'Password atau e-mail Anda salah');
+            redirect('admin/login');
         }
     }
     public function logout(){

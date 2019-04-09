@@ -6,9 +6,13 @@ class M_Registrasi extends CI_Model
     private $_table_code = "db_kode_form";
 
     public $nisn;
-    public $nomor_registrasi;
+    public $nomor_rekening;
+    public $tanggal;
+    public $waktu;
     public $gambar;
     public $email;
+    public $tanggal_registrasi;
+    public $status;
 
     public function rules()
     {
@@ -17,8 +21,16 @@ class M_Registrasi extends CI_Model
             'label' => 'Nisn',
             'rules' => 'required'],
 
-            ['field' => 'nomor_registrasi',
-            'label' => 'Nomor_registrasi',
+            ['field' => 'nomor_rekening',
+            'label' => 'Nomor_rekening',
+            'rules' => 'required'],
+
+            ['field' => 'tanggal',
+            'label' => 'Tanggal',
+            'rules' => 'required'],
+
+            ['field' => 'waktu',
+            'label' => 'Waktu',
             'rules' => 'required'],
             
             ['field' => 'email',
@@ -28,13 +40,31 @@ class M_Registrasi extends CI_Model
     } 
 
     public function getAll()
+    {   
+        // $this->db->order_by("tanggal_registrasi", "desc");
+        return $this->db->get($this->_table)->result();
+    }
+
+    public function getAktif()
     {
+        $this->db->where('status', 1);
+        return $this->db->get($this->_table)->result();
+    }
+
+    public function getNonAktif()
+    {
+        $this->db->where('status', 0);
         return $this->db->get($this->_table)->result();
     }
 
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id" => $id])->row();
+    }
+
+    public function getByNisn($kode)
+    {
+        return $this->db->get_where($this->_table, ["nisn" => $kode])->row();
     }
 
     public function id($id)
@@ -49,10 +79,13 @@ class M_Registrasi extends CI_Model
     {
         $post = $this->input->post();
         $this->nisn = $post["nisn"];
-        $this->nomor_registrasi = $post["nomor_registrasi"];
+        $this->nomor_rekening = $post["nomor_rekening"];
+        $this->tanggal = $post["tanggal"];
+        $this->waktu = $post["waktu"];
         $this->nama_pengirim = $post["nama_pengirim"];
         $this->email = $post["email"];
         $this->gambar = $this->_uploadImage();
+        $this->status = 0;
         $this->db->insert($this->_table, $this);
     }
 
@@ -61,7 +94,7 @@ class M_Registrasi extends CI_Model
     {
         $config['upload_path']          = './upload/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['overwrite']			= true;
+        $config['overwrite']			= false;
         $config['max_size']             = 1024; // 1MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
@@ -72,6 +105,60 @@ class M_Registrasi extends CI_Model
                 return $this->upload->data("file_name");
             }
     
+    }
+
+    function cek_tanggal($nomor_rekening){
+        $this->db->select('tanggal');
+        $this->db->where('nomor_rekening', $nomor_rekening);
+        $query = $this->db->get('db_registrasi');
+        return $query->row()->tanggal;
+    }
+
+    function cek_waktu($nomor_rekening){
+        $this->db->select('waktu');
+        $this->db->where('nomor_rekening', $nomor_rekening);
+        $query = $this->db->get('db_registrasi');
+        return $query->row()->waktu;
+    }
+
+    function cek_nomor_rekening($nomor_rekening){
+        $this->db->select('nomor_rekening');
+        $this->db->where('nomor_rekening',$nomor_rekening);
+        $query = $this->db->get('db_registrasi');
+        return $query->row()->nomor_rekening;
+    }
+
+
+    public function statusAktif($nisn)
+    {   
+        $post = $this->input->post();     
+        $this->nisn = $post["nisn"];
+        $this->nomor_rekening = $post["nomor_rekening"];
+        $this->tanggal = $post["tanggal"];
+        $this->waktu = $post["waktu"];
+        $this->gambar = $post["gambar"];
+        $this->nama_pengirim = $post["nama_pengirim"];
+        $this->email = $post["email"];
+        $this->status = 1;
+        $this->db->where('nisn', $nisn);
+        $this->db->update($this->_table, $this);
+        
+    }
+
+    public function statusNonAktif($nisn)
+    {   
+        $post = $this->input->post();     
+        $this->nisn = $post["nisn"];
+        $this->nomor_rekening = $post["nomor_rekening"];
+        $this->tanggal = $post["tanggal"];
+        $this->waktu = $post["waktu"];
+        $this->gambar = $post["gambar"];
+        $this->nama_pengirim = $post["nama_pengirim"];
+        $this->email = $post["email"];
+        $this->status = 0;
+        $this->db->where('nisn', $nisn);
+        $this->db->update($this->_table, $this);
+        
     }
 
     public function delete($id)

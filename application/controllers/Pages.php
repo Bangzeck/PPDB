@@ -9,9 +9,14 @@ class Pages extends CI_Controller {
         $this->load->model('M_Berita');
         $this->load->model('M_Kode');
         $this->load->model('M_Setting');
-        $this->load->model('M_Sekolah');
+        $this->load->model('M_Profil');
         $this->load->model('M_Siswa');
+        $this->load->model('M_Alumni');
+        $this->load->model('M_Maps');
+        $this->load->model('M_Setting_Daftar');
+        $this->load->model('M_Registrasi');
         $this->load->library('form_validation');
+        $this->load->library('session');
     }
     
     public function view($page = 'home')
@@ -24,9 +29,14 @@ class Pages extends CI_Controller {
         $data["berita"] = $this->M_Berita->getAll();
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
-        $data["sekolah"] = $this->M_Sekolah->getAll();
+        $data["sekolah"] = $this->M_Profil->getAll();
         $data["pengumuman"] = $this->M_Setting->getPengumuman();
         $data["daftar"] = $this->M_Setting->getDaftar();
+        $data["maps"] = $this->M_Maps->getAll();
+        $data["alumni"] = $this->M_Alumni->getAll();
+        $data["tampil_daftar"] = $this->M_Setting_Daftar->getAll();
+
+        $data["registrasi"] = $this->M_Registrasi->getAll();
 
         $this->load->view('templates/header', $data);
         $this->load->view('pages/'.$page, $data);
@@ -66,10 +76,8 @@ class Pages extends CI_Controller {
             $this->load->view('templates/footer');
             
         }else{
-            $this->load->view('templates/header');
-            $this->load->view('pages/terdaftar');
-            $this->load->view('templates/modal');
-            $this->load->view('templates/footer');
+            $this->session->set_flashdata('pendaftar', 'Maaf NISN Anda Tidak Terdaftar Sebagai Pendaftar');
+                redirect(site_url('pengumuman'));
 
         }
     }
@@ -82,8 +90,6 @@ class Pages extends CI_Controller {
         $this->load->view('templates/modal');
         $this->load->view('templates/footer');
     }
-
-    
 
     
 

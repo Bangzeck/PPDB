@@ -24,8 +24,52 @@ class Registrasi extends CI_Controller {
             $this->load->view("admin/_partials/navbar");
             $this->load->view("admin/siswa/registrasi", $data); 
             $this->load->view("admin/_partials/footer.php");
+            $this->load->view("admin/_partials/modal", $data);
+            $this->load->view("admin/_partials/js.php");
+
+            // var_dump($data);
+            // exit;
+        }
+        
+    }
+
+    public function getAktif(){
+
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{ 
+            $data["registrasi"] = $this->M_Registrasi->getAktif();
+            $this->load->view("admin/_partials/header");
+            $this->load->view("admin/_partials/navbar");
+            $this->load->view("admin/siswa/registrasi", $data); 
+            $this->load->view("admin/_partials/footer.php");
+            $this->load->view("admin/_partials/modal", $data);
+            $this->load->view("admin/_partials/js.php");
+
+            // var_dump($data);
+            // exit;
+        }
+        
+    }
+
+
+    public function getNonAktif(){
+
+        $session = $this->session->userdata('login'); 
+        if($session != 'login'){
+            $this->load->view('pages/login');
+        }else{ 
+            $data["registrasi"] = $this->M_Registrasi->getNonAktif();
+            $this->load->view("admin/_partials/header");
+            $this->load->view("admin/_partials/navbar");
+            $this->load->view("admin/siswa/registrasi", $data); 
+            $this->load->view("admin/_partials/footer.php");
             $this->load->view("admin/_partials/modal");
             $this->load->view("admin/_partials/js.php");
+
+            // var_dump($data);
+            // exit;
         }
         
     }
@@ -66,15 +110,36 @@ class Registrasi extends CI_Controller {
 
 
      public function addCode()
-    {
+    {   $kode = $this->input->post('kode');
+        $nisn = $this->input->post('nisn');
+        $data = $this->M_Registrasi->getByNisn($kode);
         $this->load->library('form_validation');
         $this->form_validation->set_rules('kode', 'Kode','required|is_unique[db_kode_form.kode]');
         if($this->form_validation->run() == TRUE){
-            $kode = $this->input->post('kode');
-            $this->M_Kode->codeInsert($kode,'kode'); 
-            redirect(site_url('admin/registrasi'));
+            $this->M_Kode->codeInsert($kode,'kode');
+            $this->M_Registrasi->statusAktif($nisn,'nisn');
+            redirect(site_url('admin/registrasi/getAktif'));
         }else{
-            redirect(site_url('admin/registrasi'));
+            redirect(site_url('admin/registrasi/getNonAktif'));
+        }
+        
+
+    }
+
+    public function deleteCode()
+    {   $kode = $this->input->post('kode');
+        $nisn = $this->input->post('nisn');
+        $data = $this->M_Registrasi->getByNisn($kode);
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('kode', 'Kode','required');
+        if($this->form_validation->run() == TRUE){
+            $this->M_Kode->delete($nisn);
+            $this->M_Registrasi->statusNonAktif($nisn,'nisn');
+            // var_dump($nisn);
+            // exit;
+            redirect(site_url('admin/registrasi/getNonAktif'));
+        }else{
+            redirect(site_url('admin/registrasi/getAktif'));
         }
         
 
@@ -88,13 +153,7 @@ class Registrasi extends CI_Controller {
         }
     }
 
-    public function deleteCode($id=null)
-    {
-        if (!isset($id)) show_404();
-        if ($this->M_Kode->delete($id)) {
-            redirect(site_url('admin/registrasi/view_code'));
-        }
-    }
+    
 
 
 

@@ -8,6 +8,9 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('M_User');
         $this->load->library('form_validation');
+        $this->load->library('session');
+        $this->load->library('encrypt');
+
 	}
 
 	public function index(){
@@ -37,7 +40,8 @@ class User extends CI_Controller {
              'email' => $this->input->post('email'),
              'password' => $this->input->post('password')
             );
-         $this->M_User->updateUser($data);  
+         $this->M_User->updateUser($data);
+         $this->session->set_flashdata('sukses', 'User sukses di update');
          
          redirect(site_url('admin/user'));
         

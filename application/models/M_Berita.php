@@ -46,8 +46,8 @@ class M_Berita extends CI_Model
     {
         $config['upload_path']          = './upload/berita/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['overwrite']			= true;
-        $config['max_size']             = 1024; // 1MB
+        $config['overwrite']			= false;
+        $config['max_size']             = 3072; // 3MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
 

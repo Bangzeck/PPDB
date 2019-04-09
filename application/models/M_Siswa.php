@@ -228,30 +228,18 @@ class M_Siswa extends CI_Model
     }
 
 
-    public function getVerifikasi() {
-        $results = array();
-        $this->db->select('id, nama_siswa, nisn, status_pendaftaran, jenis_kelamin');
-        $this->db->from($this->_table);
-        $this->db->where('status_pendaftaran',"Belum Diverifikasi");
-    
-        $query = $this->db->get();
-    
-        if($query->num_rows() > 0) {
-            $results = $query->result();
-        }
-        return $results;
-    }
 
     
 
     // DASHBOARD
-    
+
+    // Menghutung jumlah data berdasarkan ID
     public function jumlahSiswa(){
         $sql = "SELECT count(id) as id FROM db_data_siswa";
         $result = $this->db->query($sql);
         return $result->row()->id;
     }
-
+    //Menghitung jumlah data tabel status_pendaftaran yang memiliki kolom "Diterima"
     public function jumlahDiterima(){
         $this->db->select("count(status_pendaftaran) as status_pendaftaran");
         $this->db->from($this->_table);
@@ -264,15 +252,36 @@ class M_Siswa extends CI_Model
         $this->db->where('status_pendaftaran',"Tidak Diterima");
         return $this->db->get()->row()->status_pendaftaran;
     }
-    public function jumlahVerifkasi(){
-        $this->db->select("count(status_pendaftaran) as status_pendaftaran");
-        $this->db->from($this->_table);
-        $this->db->where('status_pendaftaran',"Belum Diverifikasi");
-        return $this->db->get()->row()->status_pendaftaran;
+
+
+    //IMPORT DATABASE WITH EXCEL
+    //Upload File Excel ke folder upload/excel
+    public function upload_file_excel($filename)
+    {
+        $this->load->library('upload');
+
+        $config['upload_path'] = './upload/excel/';
+        $config['allowed_types'] = 'xlsx';
+        $config['max_size']	= '2048';
+        $config['overwrite'] = true;
+        $config['file_name'] = $filename;
+
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('file')) {
+            $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+            return $return;
+        }else{
+            $return = array('result' => 'failed','file' => '','error' => $this->upload->display_errors());
+            return $return;
+        }
+
+    }
+    
+    public function update_multiple($data)
+    {   
+        $this->db->update_batch($this->_table, $data, 'nisn');
     }
 
-    
-    
 
 
     function cek_user($nisn){

@@ -67,6 +67,7 @@ class Berita extends CI_Controller {
 
     public function edit($id)
     {   
+      
         $session = $this->session->userdata('login'); 
         if($session != 'login'){
             redirect(site_url('admin/login'));
@@ -86,10 +87,11 @@ class Berita extends CI_Controller {
     public function update($id)
 	{
         $row = $this->M_Berita->getById($id);
+        
 		if ($_FILES AND $_FILES['gambar']['name']) {
 				$config = array(
 						'upload_path' => './upload/berita/',
-						'allowed_types' => 'jpeg|jpg|png',
+						'allowed_types' => 'gif|jpg|png|jpeg|bmp',
 						'max_size' => '2048',
 						'max_width' => '2000',
 						'max_height' => '2000'

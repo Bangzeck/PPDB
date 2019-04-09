@@ -11,6 +11,15 @@
                 placeholder="Nomor Induk Siswa Nasional">
             <small id="emailHelp" class="form-text text-muted"></small>
         </div>
+
+        <!-- <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            
+        </div> -->
+        <h5 class="border border-danger" style="text-align:center; font-weight:bold; color:red">
+            <?php echo $this->session->flashdata('sudah_pernah');?><?php echo $this->session->flashdata('message');?>
+        </h5>
+
         <button type="submit" class="btn btn-primary">Masuk</button>
     </form>
 

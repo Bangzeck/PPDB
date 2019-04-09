@@ -51,27 +51,24 @@
                                 Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/registrasi'); ?>"><i
+                            <a href="<?php echo base_url('admin/registrasi/getNonAktif'); ?>"><i
                                     class="fa fa-edit fa-fw"></i> &nbsp Registrasi</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i>  &nbsp Data
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i>  &nbsp Data Calon
                                 Siswa <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url();?>admin/siswa">&nbsp &nbsp List Siswa</a>
+                                    <a href="<?php echo base_url();?>admin/siswa">&nbsp &nbsp List Calon Siswa</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url();?>admin/siswa/add">&nbsp &nbsp Tambah Siswa</a>
+                                    <a href="<?php echo base_url();?>admin/siswa/add">&nbsp &nbsp Tambah Calon Siswa</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url();?>admin/siswa/diterima">&nbsp &nbsp Diterima</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url();?>admin/siswa/ditolak">&nbsp &nbsp Ditolak</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>admin/siswa/belom_verifikasi">&nbsp &nbsp Belom Verifikasi</a>
                                 </li>
                             </ul>
                         </li>

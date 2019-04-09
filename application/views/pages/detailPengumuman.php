@@ -36,13 +36,6 @@
             <h4>Silakan Cetak Lembar Bukti Diterima dengan Klik tombol detail : </h4>
             <a href="<?php echo base_url('pages/cetak/'.$s->nisn); ?>"><button
                     class="btn btn-primary pull-right">Detail</button></a>
-            <!-- <button onclick="myFunction()">Print this page</button>
-
-            <script>
-            function myFunction() {
-                window.print();
-            }
-            </script> -->
             <?php endforeach; ?>
 
         </div>

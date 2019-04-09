@@ -42,7 +42,7 @@
                             <input type="checkbox" onclick="myFunction()">Show Password
 
                         </div><br>
-
+                        <p style="text-align:center; font-weight:bold; color:green"><?php echo $this->session->flashdata('sukses');?></p>
                         <div>
                             <button class="btn btn-primary col-md-2 pull-right">Update</button>
                         </div>

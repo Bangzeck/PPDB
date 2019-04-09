@@ -17,7 +17,7 @@
                             </label>
                             &nbsp&nbsp&nbsp
                             <button class="btn btn-danger" type="submit" name="action" value="delete">Delete</button>
-                            
+
 
                             <div class="panel-body no-padding">
                                 <div class="table-responsive">
@@ -42,12 +42,21 @@
                                                                 <h4 class="text-primary"><?php echo $s->nama ?>
                                                             </a>
 
-                                                            &nbsp(<small><?php echo $s->email ?></small>)<span
+                                                            &nbsp(<a
+                                                                href="<?php echo base_url();?>admin/email/detailEmail/<?php echo $s->id ?>"><small><?php echo $s->email ?></small></a>)<span
                                                                 class="pull-right"><small><?php echo $s->tanggal ?></small></span>
                                                             </h4>
-                                                            <h4 class="email-summary"><?php echo $s->subjek ?></h4>
-                                                            <p class="email-summary">
-                                                                <?= substr($s->pesan, 0, 140) ?>....</p>
+                                                            <span>
+                                                                <h4><?php echo $s->subjek ?></h4>
+                                                                <h5 style="color:red" class="pull-right">
+                                                                    <?php if($s->status != 1){
+                                                                        echo "Belum Dibalas";
+                                                                    }else{
+                                                                        echo "Sudah Dibalas";
+                                                                    } ?>
+                                                                </h5>
+                                                            </span>
+                                                            <p><?= substr($s->pesan, 0, 140) ?>....</p>
 
 
                                                         </div>

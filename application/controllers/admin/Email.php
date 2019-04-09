@@ -83,11 +83,15 @@ class Email extends CI_Controller {
 
     public function balas()
     {   
+        $id = $this->input->post('id');
+        $sekolah = $this->input->post('sekolah');
         $emailDari = $this->input->post('emailDari');
         $pass = $this->input->post('password');
         $emailKepada = $this->input->post('emailKepada');
+        $nama = $this->input->post('nama');
         $subjek = $this->input->post('subjek');
         $konten = $this->input->post('konten');
+        $pesan = $this->input->post('pesan');
 
         $config = Array(
             'protocol' => 'smtp',
@@ -102,12 +106,18 @@ class Email extends CI_Controller {
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from($emailDari, 'SMK Bina Utama');
+        $this->email->from($emailDari, $sekolah);
         $this->email->to($emailKepada);
         $this->email->subject($subjek);
         $this->email->message($konten);
         
         $this->email->send();
+        
+        $this->M_Email->UpdateEmail($id, 'id');
+        
+
+        // var_dump($id);
+        // exit;
 
         redirect(site_url('admin/email'));
 

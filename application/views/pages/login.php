@@ -8,8 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Login Admin</title>
 
+    <link href="<?php echo base_url();?>assets/img/favicon.png" rel="icon">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -47,8 +48,9 @@
                                 <input type="checkbox" onclick="myFunction()">Show Password
                                 <br><br>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="btn btn-lg btn-success btn-block">Login</button>
-                                <br>
+                                <button class="btn btn-lg btn-success btn-block">Login</button><br>
+                                <p class="border border-danger" style="text-align:center; font-weight:bold; color:red"><?php echo $this->session->flashdata('login');?></p>
+
                                 <a href="<?php echo base_url();?>pages/view/">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Home</button>
                                 </a>

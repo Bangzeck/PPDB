@@ -19,7 +19,7 @@ class M_User extends CI_Model
         $this->nama_lengkap = $post["nama_lengkap"];
         $this->username = $post["username"];
         $this->email = $post["email"];
-        $this->password = $post["password"];
+        $this->password = md5($post["password"]);
     
         $this->db->where('id',0);
         $this->db->update($this->_table, $this);

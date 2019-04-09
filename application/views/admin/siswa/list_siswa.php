@@ -1,7 +1,12 @@
+
 <div class="panel panel-default ">
     <div class="panel-heading">
 
-        <h4 style="font-family:roboto; font-weight:bold">LIST SEMUA SISWA BARU</h4>
+        <h4 style="font-family:roboto; font-weight:bold">LIST SEMUA SISWA BARU
+            <a href="<?php echo site_url('admin/siswa/view_upload') ?>" class="btn btn-success pull-right">Masukan Nilai Ujian</a>
+            <a href="<?php echo site_url('admin/siswa/export') ?>" style="margin-right: 10px;" class="btn btn-primary pull-right">Export</a>
+        </h4>
+
     </div>
 
     <div class="panel-body">
@@ -11,6 +16,7 @@
                     <th>Nama</th>
                     <th>Nisn</th>
                     <th>Jenis Kelamin</th>
+                    <th>Nilai Ujian</th>
                     <th>Diterima/Ditolak</th>
                     <th>Action</th>
                 </tr>
@@ -27,7 +33,9 @@
                     <td>
                         <?php echo $s->jenis_kelamin ?>
                     </td>
-
+                    <td>
+                        <?php echo $s->nilai_ujian ?>
+                    </td>
                     <td width="100">
                         <?php echo $s->status_pendaftaran ?>
                     </td>

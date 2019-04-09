@@ -28,12 +28,23 @@
         <tr>
             <td>
                 <a href="#" data-toggle="modal" data-target="#deleteModalRegistrasi"><button type="button"
-                        style="font-family:roboto" class="btn btn-danger pull-right">Hapus</button></a>
+                        style="font-family:roboto" class="btn btn-danger pull-right">Hapus Bukti Pembayaran</button></a>
             </td>
             <td>
+                <?php if($d->status != 0){?>
+
+                <a href="#" data-toggle="modal" data-target="#NonAktifModalRegistrasi"><button type="button"
+                        style="font-family:roboto ; margin-right: 40px;" class="btn btn-danger pull-right">Non Aktifkan
+                        Nisn</button></a>
+
+                <?php }else{?>
                 <a href="#" data-toggle="modal" data-target="#addModalRegistrasi"><button type="button"
-                        style="font-family:roboto ; margin-right: 40px;"
-                        class="btn btn-success pull-right">Tambah</button></a>
+                        style="font-family:roboto ; margin-right: 40px;" class="btn btn-success pull-right">Aktifkan
+                        Nisn</button></a>
+                <?php }?>
+
+
+
             </td>
         </tr>
         <h4 style="font-family:roboto; font-weight:bold">Bukti Pembayaran</h4>
@@ -42,7 +53,10 @@
 
         <tr>
             <td>
-                <h2 style="font-family:roboto">Nomor Registrasi : <?php echo $d->nomor_registrasi ?></h2>
+                <h2 style="font-family:roboto">Nomor Rekening Pengirim : <?php echo $d->nomor_rekening ?></h2>
+            </td>
+            <td>
+                <h2 style="font-family:roboto">Tanggal : <?php echo $d->tanggal ?> Waktu : <?php echo $d->waktu ?></h2>
             </td>
             <td>
                 <h4 style="font-family:roboto">NISN : <?php echo $d->nisn ?></h4>

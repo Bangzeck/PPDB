@@ -9,6 +9,7 @@
                     placeholder="Nomor Indusk Siswa">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
+            <h5 class="border border-danger" style="text-align:center; font-weight:bold; color:red"><?php echo $this->session->flashdata('pendaftar');?></h5>
             <button type="submit" class="btn btn-primary">Lihat</button>
         </form> 
         <?php

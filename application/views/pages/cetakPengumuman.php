@@ -75,13 +75,14 @@
 
             <?php endforeach; ?>
         </div>
-
-        <button class="btn btn-primary pull-right" onclick="myFunction()">Cetak</button>
-
-        <script>
-        function myFunction() {
-            window.print();
-        }
-        </script>
-    </div>
+    </div><br>
+    <a href="<?php echo base_url('pengumuman')?>"><button class="btn btn-primary pull-left">Pengumuman</button></a>
+    <button class="btn btn-primary pull-right" onclick="myFunction()">Cetak</button>
 </div>
+
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>

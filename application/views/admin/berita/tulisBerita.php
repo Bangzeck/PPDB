@@ -9,6 +9,11 @@
         <label for="file">Foto</label>
         <input style="width:200px" type="file" name="gambar" class="form-control-file">
     </div>
+    <?php if (validation_errors()) : ?>
+    <div class="alert alert-danger">
+        <?php echo validation_errors(); ?>
+    </div>
+    <?php endif; ?>
 
     <script type="text/javascript" src="<?php echo base_url();?>/assets/ckeditor/ckeditor.js"></script>
 
