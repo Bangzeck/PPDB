@@ -8,6 +8,8 @@ class Email extends CI_Controller {
         parent::__construct();
         $this->load->model('M_Email');
         $this->load->library('form_validation');
+        $this->load->library('session');
+        $this->load->library('encryption');
     }
 
 	public function index($page = 'email'){
@@ -24,8 +26,6 @@ class Email extends CI_Controller {
                 $this->load->view("admin/_partials/footer.php");
                 $this->load->view("admin/_partials/modal");
                 $this->load->view("admin/_partials/js.php");
-          
-        
         }
     }
 
@@ -37,7 +37,7 @@ class Email extends CI_Controller {
 
         if($validation->run()){
             $email->send();
-            $this->session->set_flashdata('success', 'Berhasil Di simpan');
+            $this->session->set_flashdata('success', 'Email Berhasil Dikirim');
         }
             redirect(base_url());
     }
@@ -57,8 +57,6 @@ class Email extends CI_Controller {
             $this->load->view("admin/_partials/footer.php");
             $this->load->view("admin/_partials/modal");
             $this->load->view("admin/_partials/js.php");
-          
-        
         }
         
     }  
@@ -86,7 +84,7 @@ class Email extends CI_Controller {
         $id = $this->input->post('id');
         $sekolah = $this->input->post('sekolah');
         $emailDari = $this->input->post('emailDari');
-        $pass = $this->input->post('password');
+        $password = $this->encryption->decrypt($this->input->post('password_email'));
         $emailKepada = $this->input->post('emailKepada');
         $nama = $this->input->post('nama');
         $subjek = $this->input->post('subjek');
@@ -98,7 +96,7 @@ class Email extends CI_Controller {
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
             'smtp_user' => $emailDari,
-            'smtp_pass' => $pass,
+            'smtp_pass' => $password,
             'mailtype' => 'html',
             'charset' => 'iso-8859-1',
         );
@@ -112,17 +110,11 @@ class Email extends CI_Controller {
         $this->email->message($konten);
         
         $this->email->send();
-        
         $this->M_Email->UpdateEmail($id, 'id');
         
 
-        // var_dump($id);
-        // exit;
-
-        redirect(site_url('admin/email'));
-
         
-
+        redirect(site_url('admin/email'));
 
     }
 

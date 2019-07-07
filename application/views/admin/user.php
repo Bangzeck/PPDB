@@ -35,11 +35,17 @@
                                 <input class="form-control" type="text" name="email" id="email"
                                     value="<?php echo $u->email ?>" required="">
                             </td>
-                            <label class="control-label">Password</label>
+                            <label class="control-label">Password Email</label>
                             <td>
-                                <input class="form-control"  type="password" name="password" id="password" required="">
+                                <input class="form-control"  type="password" name="password_email" id="password_email" required="">
+                            </td>
+                            <input type="checkbox" onclick="showPassemail()">Show Password
+                            <br>
+                            <label class="control-label">Password User</label>
+                            <td>
+                                <input class="form-control"  type="password" name="password_user" id="password_user" required="">
                             </td><br>
-                            <input type="checkbox" onclick="myFunction()">Show Password
+                            <input type="checkbox" onclick="showPassUser()">Show Password
 
                         </div><br>
                         <p style="text-align:center; font-weight:bold; color:green"><?php echo $this->session->flashdata('sukses');?></p>
@@ -62,8 +68,16 @@
 </div>
 
 <script>
-function myFunction() {
-    var x = document.getElementById("password");
+function showPassemail() {
+    var x = document.getElementById("password_email");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+function showPassUser() {
+    var x = document.getElementById("password_user");
     if (x.type === "password") {
         x.type = "text";
     } else {

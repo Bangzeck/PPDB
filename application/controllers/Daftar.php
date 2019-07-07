@@ -15,9 +15,8 @@ class Daftar extends CI_Controller {
 
         $cek = $this->M_Daftar->cek_user($kode);
         $cek_siswa = $this->M_Daftar->cek_siswa($nisn);
-
-        
-
+        // var_dump($cek_siswa);
+        // exit;
         if (empty($cek_siswa)) {
 
             if(count($cek) == 1){

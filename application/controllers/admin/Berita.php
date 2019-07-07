@@ -87,6 +87,9 @@ class Berita extends CI_Controller {
     public function update($id)
 	{
         $row = $this->M_Berita->getById($id);
+
+        // var_dump($row->id);
+        // exit;
         
 		if ($_FILES AND $_FILES['gambar']['name']) {
 				$config = array(
@@ -110,8 +113,8 @@ class Berita extends CI_Controller {
 								'gambar' => $this->input->post('gambar'),
 								'gambar' => $file['file_name'],
 						);
-                        $this->M_Berita->update($id, $data);
-                        // var_dump($file);;
+                        $this->M_Berita->update($row->id, $data);
+                        // var_dump($data);;
                         // exit;
 				}
 		}
@@ -123,7 +126,7 @@ class Berita extends CI_Controller {
                         'isi' => $this->input->post('isi'),
 						'gambar' => $this->input->post('gambar'),
 				);
-                $this->M_Berita->update($id, $data);         
+                $this->M_Berita->update($id->row, $data); 
 		}
         redirect(site_url('admin/berita'));
 	}

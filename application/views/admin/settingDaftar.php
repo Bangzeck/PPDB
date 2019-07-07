@@ -19,7 +19,7 @@
                                     <img src="<?php echo base_url()?>upload/alur/<?php echo $p->gambar ?>"
                                         width="500"><br><br>
                                     <input type="file" name="gambar" required="">
-                                    <small>Ukuran gambar normal </small>
+                                    <small>Ukuran gambar normal height="520" width="1100"</small>
                                 </td>
                             </tr>
                             <tr>

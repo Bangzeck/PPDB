@@ -18,6 +18,7 @@ class Dashboard extends CI_Controller {
             $data["jumlahSiswa"] = $this->M_Siswa->jumlahSiswa();
             $data["jumlahDiterima"] = $this->M_Siswa->jumlahDiterima();
             $data["jumlahDitolak"] = $this->M_Siswa->jumlahDitolak();
+
             $this->load->view("admin/_partials/header");     
             $this->load->view("admin/_partials/navbar");
             $this->load->view("admin/dashboard", $data);

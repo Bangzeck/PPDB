@@ -7,7 +7,6 @@
     <label for="judul">Judul</label>
     <input class="form-control" placeholder="Judul" value="<?php echo $e->judul ?>" name="judul" type="judul"
         autofocus><br>
-    <input class="form-control" name="id" type="id" value="<?php echo $e->id ?>" autofocus readonly><br>
 
     <div class="form-group">
         <label for="file">Foto :</label><br>
@@ -19,7 +18,7 @@
         <img src="<?php echo base_url()?>upload/berita/<?php echo $e->gambar ?>" width="100"><br>
         <?php }?><br>
 
-        <input type="file" name="gambar">
+        <input type="file" name="gambar" value="<?php echo $e->gambar ?>">
 
     </div>
 

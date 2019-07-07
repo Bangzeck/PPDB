@@ -31,6 +31,11 @@
                             <h3><b>......<?php echo $s->status_pendaftaran; ?>......</b></h3>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            Dengan Nilai : <?php echo $s->nilai_ujian ?> 
+                        </td>
+                    </tr>
                 </tbody>
             </table><br>
             <h4>Silakan Cetak Lembar Bukti Diterima dengan Klik tombol detail : </h4>

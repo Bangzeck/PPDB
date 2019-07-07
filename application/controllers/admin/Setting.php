@@ -35,14 +35,14 @@ class Setting extends CI_Controller {
         if($session != 'login'){
             redirect(site_url('admin/login'));
         }else{ 
-         $data = array (
-             'pengumuman' => $this->input->post('pengumuman'),
-             'daftar' => $this->input->post('daftar')
+        $data = array (
+            'pengumuman' => $this->input->post('pengumuman'),
+            'daftar' => $this->input->post('daftar')
             );
-         $this->M_Setting->updatePengumuman($data); 
-         $this->session->set_flashdata('pengumuman', 'Pengumuman dan daftar sudah di update');
-         
-         redirect(site_url('admin/setting'));
+        $this->M_Setting->updatePengumuman($data); 
+        $this->session->set_flashdata('pengumuman', 'Pengumuman dan daftar sudah di update');
+        
+        redirect(site_url('admin/setting'));
         
         }
     }
@@ -53,21 +53,20 @@ class Setting extends CI_Controller {
         if($session != 'login'){
             redirect(site_url('admin/login'));
         }else{ 
-         $data = array (
-             'nama' => $this->input->post('nama'),
-             'email' => $this->input->post('email'),
-             'nomor' => $this->input->post('nomor'),
-             'alamat' => $this->input->post('alamat'),
-             'pengumuman' => $this->input->post('pengumuman')
+        $data = array (
+            'nama' => $this->input->post('nama'),
+            'email' => $this->input->post('email'),
+            'nomor' => $this->input->post('nomor'),
+            'alamat' => $this->input->post('alamat'),
+            'pengumuman' => $this->input->post('pengumuman')
             );
-         $this->M_Profil->updateSekolah($data); 
-         $this->session->set_flashdata('sekolah', 'Data sudah diupdate');
-         
-         redirect(site_url('admin/setting'));
+        $this->M_Profil->updateSekolah($data); 
+        $this->session->set_flashdata('sekolah', 'Data sudah diupdate');
+        
+        redirect(site_url('admin/setting'));
         
         }
     }
-
 
 
     public function editPageDaftar()

@@ -16,6 +16,7 @@ class Alumni extends CI_Controller {
             $this->load->view('pages/login');
         }else{ 
             $data["alumni"] = $this->M_Alumni->getAll();
+            
             $this->load->view("admin/_partials/header");
             $this->load->view("admin/_partials/navbar");
             $this->load->view("admin/alumni/alumni", $data);
@@ -88,7 +89,8 @@ class Alumni extends CI_Controller {
     public function update($id)
 	{
         $row = $this->M_Alumni->getById($id);
-        
+        // var_dump($row);
+        // exit;
 		if ($_FILES AND $_FILES['gambar']['name']) {
 				$config = array(
 						'upload_path' => './upload/alumni/',
@@ -112,7 +114,10 @@ class Alumni extends CI_Controller {
 								'gambar' => $this->input->post('gambar'),
 								'gambar' => $file['file_name'],
 						);
-                        $this->M_Alumni->update($id, $data);
+                        $this->M_Alumni->update($row->id, $data);
+
+                        // var_dump($data);
+                        // exit;
                         
 				}
 		}
@@ -125,7 +130,10 @@ class Alumni extends CI_Controller {
                         'kutipan' => $this->input->post('kutipan'),
 						'gambar' => $this->input->post('gambar'),
 				);
-                $this->M_Alumni->update($id, $data);         
+                $this->M_Alumni->update($row->id, $data);
+
+                // var_dump($row->id);
+                // exit;
 		}
         redirect(site_url('admin/alumni'));
 	}

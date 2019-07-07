@@ -15,7 +15,6 @@
                         <option value="<?php echo $s->status_pendaftaran ?>"><?php echo $s->status_pendaftaran ?>
                         </option>
                         <option value="Diterima">Diterima</option>
-                        <option value="Belum Diverifikasi">Belum Diverifikasi</option>
                         <option value="Tidak Diterima">Tidak Diterima</option>
                     </select><br>
 

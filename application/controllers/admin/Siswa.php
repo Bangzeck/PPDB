@@ -20,6 +20,8 @@ class Siswa extends CI_Controller
             $this->load->view('admin/login');
         }else{ 
             $data["siswa"] = $this->M_Siswa->getAll();
+            // var_dump($data);
+            // exit;
             $this->load->view("admin/_partials/header");
             $this->load->view("admin/_partials/navbar");
             $this->load->view("admin/siswa/".$page, $data);
@@ -66,10 +68,7 @@ class Siswa extends CI_Controller
     {   
         $kode = $this->security->xss_clean($this->input->post("nisn"));
         $cek = $this->M_Kode->cek_kode($kode);
-
-        // var_dump(count($cek));
-        // exit;
-
+        
         if (count($cek) == 1) {
 
             $this->load->library('form_validation');
@@ -82,7 +81,7 @@ class Siswa extends CI_Controller
                 
                 if ($validation->run()) {
                     $data_siswa->save();
-                    $this->session->set_flashdata('success', 'Berhasil disimpan');               
+                    $this->session->set_flashdata('success', 'Terimakasih Data Anda Sudah Terkikrim');               
                 }
                 redirect(); 
             }else{
@@ -123,7 +122,7 @@ class Siswa extends CI_Controller
                     $this->load->view("admin/_partials/footer.php");
                     $this->load->view("admin/_partials/modal");                   
         }
-     }
+    }
 
     public function diterima()
     {
@@ -132,13 +131,13 @@ class Siswa extends CI_Controller
             $this->load->view('pages/login');
         }else{ 
             $data["diterima"] = $this->M_Siswa->getDiterima();
+            
             $this->load->view("admin/_partials/header");
             $this->load->view("admin/_partials/navbar");
             $this->load->view("admin/siswa/diterima", $data);
             $this->load->view("admin/_partials/footer.php");
             $this->load->view("admin/_partials/modal");
             $this->load->view("admin/_partials/js.php");
-    
         }
     }
 
@@ -214,7 +213,7 @@ class Siswa extends CI_Controller
         );
 
         $excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA CALON SISWA"); 
-        $excel->getActiveSheet()->mergeCells('A1:E1'); 
+        $excel->getActiveSheet()->mergeCells('A1:F1'); 
         $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); 
         $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); 
         $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
@@ -223,14 +222,16 @@ class Siswa extends CI_Controller
         $excel->setActiveSheetIndex(0)->setCellValue('A3', "NO");
         $excel->setActiveSheetIndex(0)->setCellValue('B3', "NAMA");
         $excel->setActiveSheetIndex(0)->setCellValue('C3', "NISN");
-        $excel->setActiveSheetIndex(0)->setCellValue('D3', "JENIS KELAMIN"); 
-        $excel->setActiveSheetIndex(0)->setCellValue('E3', "DITERIMA/DITOLAK"); 
+        $excel->setActiveSheetIndex(0)->setCellValue('D3', "JENIS KELAMIN");
+        $excel->setActiveSheetIndex(0)->setCellValue('E3', "NILAI");
+        $excel->setActiveSheetIndex(0)->setCellValue('F3', "DITERIMA/DITOLAK"); 
         
         $excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
         $excel->getActiveSheet()->getStyle('B3')->applyFromArray($style_col);
         $excel->getActiveSheet()->getStyle('C3')->applyFromArray($style_col);
         $excel->getActiveSheet()->getStyle('D3')->applyFromArray($style_col);
         $excel->getActiveSheet()->getStyle('E3')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('F3')->applyFromArray($style_col);
 
 
          
@@ -242,7 +243,8 @@ class Siswa extends CI_Controller
         $excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->nama_siswa);
         $excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->nisn);
         $excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->jenis_kelamin);
-        $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->status_pendaftaran);
+        $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->nilai_ujian);
+        $excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->status_pendaftaran);
         
 
         $excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
@@ -250,6 +252,7 @@ class Siswa extends CI_Controller
         $excel->getActiveSheet()->getStyle('C'.$numrow)->applyFromArray($style_row);
         $excel->getActiveSheet()->getStyle('D'.$numrow)->applyFromArray($style_row);
         $excel->getActiveSheet()->getStyle('E'.$numrow)->applyFromArray($style_row);
+        $excel->getActiveSheet()->getStyle('F'.$numrow)->applyFromArray($style_row);
         
         $no++; 
         $numrow++; 
@@ -260,8 +263,9 @@ class Siswa extends CI_Controller
         $excel->getActiveSheet()->getColumnDimension('A')->setWidth(5); 
         $excel->getActiveSheet()->getColumnDimension('B')->setWidth(15); 
         $excel->getActiveSheet()->getColumnDimension('C')->setWidth(25); 
-        $excel->getActiveSheet()->getColumnDimension('D')->setWidth(20); 
-        $excel->getActiveSheet()->getColumnDimension('E')->setWidth(30); 
+        $excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+        $excel->getActiveSheet()->getColumnDimension('E')->setWidth(10);
+        $excel->getActiveSheet()->getColumnDimension('F')->setWidth(30); 
         
        
         $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);

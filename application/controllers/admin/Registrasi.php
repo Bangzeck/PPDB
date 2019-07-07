@@ -89,10 +89,10 @@ class Registrasi extends CI_Controller {
         $this->load->view("admin/_partials/modal", $data);
         $this->load->view("admin/_partials/js");
         }
-     }
+    }
 
-     public function view_code()
-     {  
+    public function view_code()
+    {  
         $session = $this->session->userdata('login'); 
         if($session != 'login'){
             $this->load->view('pages/login');
@@ -106,10 +106,10 @@ class Registrasi extends CI_Controller {
         $this->load->view("admin/_partials/modal", $data);
         $this->load->view("admin/_partials/js");
         }
-     }
+    }
 
 
-     public function addCode()
+    public function addCode()
     {   $kode = $this->input->post('kode');
         $nisn = $this->input->post('nisn');
         $data = $this->M_Registrasi->getByNisn($kode);

@@ -202,9 +202,8 @@ class M_Siswa extends CI_Model
         $this->db->select('id, nama_siswa, nisn, status_pendaftaran, jenis_kelamin');
         $this->db->from($this->_table);
         $this->db->where('status_pendaftaran',"Diterima");
-    
         $query = $this->db->get();
-    
+        
         if($query->num_rows() > 0) {
             $results = $query->result();
         }
@@ -246,6 +245,7 @@ class M_Siswa extends CI_Model
         $this->db->where('status_pendaftaran',"Diterima");
         return $this->db->get()->row()->status_pendaftaran;
     }
+    //Menghitung jumlan data tabel status_pendaftaran yang memiliki kolom "Ditolak"
     public function jumlahDitolak(){
         $this->db->select("count(status_pendaftaran) as status_pendaftaran");
         $this->db->from($this->_table);
@@ -262,7 +262,7 @@ class M_Siswa extends CI_Model
 
         $config['upload_path'] = './upload/excel/';
         $config['allowed_types'] = 'xlsx';
-        $config['max_size']	= '2048';
+        $config['max_size']	= '8192';
         $config['overwrite'] = true;
         $config['file_name'] = $filename;
 

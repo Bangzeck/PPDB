@@ -28,7 +28,7 @@ class Registrasi extends CI_Controller {
 
 
         // echo $waktu;
-        // var_dump($waktu);
+        // var_dump($rekening);
         // exit;
 
         if (empty($rekening)) {

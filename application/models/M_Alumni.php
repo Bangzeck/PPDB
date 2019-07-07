@@ -60,7 +60,7 @@ class M_Alumni extends CI_Model
     {
         $config['upload_path']          = './upload/alumni/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['overwrite']			= true;
+        $config['overwrite']			= false;
         $config['max_size']             = 3072; // 3MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
@@ -71,6 +71,19 @@ class M_Alumni extends CI_Model
                 return $this->upload->data("file_name");
             }
     
+    }
+
+    public function update($id, $data)
+    {   
+        $post = $this->input->post();     
+        $this->nama = $post["nama"];
+        $this->titel = $post["titel"];
+        $this->kutipan = $post["kutipan"];
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
+
+        // var_dump($id);
+        // exit;
     }
 
     public function delete($id)
@@ -87,7 +100,4 @@ class M_Alumni extends CI_Model
         }
     }
 
-
-    
-      
 }

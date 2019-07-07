@@ -38,10 +38,12 @@ class User extends CI_Controller {
              'nama_lengkap' => $this->input->post('nama_lengkap'),
              'username' => $this->input->post('username'),
              'email' => $this->input->post('email'),
-             'password' => $this->input->post('password')
+             'password_email' => $this->input->post('password_email'),
+             'password_user' => $this->input->post('password_user')
             );
          $this->M_User->updateUser($data);
          $this->session->set_flashdata('sukses', 'User sukses di update');
+         
          
          redirect(site_url('admin/user'));
         

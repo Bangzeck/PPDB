@@ -43,7 +43,7 @@
                                         autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" id="password" type="password">
+                                    <input class="form-control" placeholder="Password" name="password_user" id="password" type="password">
                                 </div>
                                 <input type="checkbox" onclick="myFunction()">Show Password
                                 <br><br>

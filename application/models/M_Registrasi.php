@@ -128,7 +128,6 @@ class M_Registrasi extends CI_Model
         return $query->row()->nomor_rekening;
     }
 
-
     public function statusAktif($nisn)
     {   
         $post = $this->input->post();     

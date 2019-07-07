@@ -31,7 +31,7 @@ class M_Email extends CI_Model
 
     public function getAll()
     {   
-        $this->db->order_by("tanggal", "asc");
+        $this->db->order_by("tanggal", "desc");
         return $this->db->get($this->_table)->result();
     }
 
@@ -75,8 +75,6 @@ class M_Email extends CI_Model
         $this->status = 1;
         $this->db->where('id', $id);
         $this->db->update($this->_table, $this);
-
-      
     }
 
     public function jumlahPesan(){

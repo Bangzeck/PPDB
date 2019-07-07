@@ -30,7 +30,6 @@ class M_Setting extends CI_Model
 
         $this->pengumuman = $post["pengumuman"];
         $this->daftar = $post["daftar"];
-    
         $this->db->where('id',0);
         $this->db->update($this->_table, $this);
     }

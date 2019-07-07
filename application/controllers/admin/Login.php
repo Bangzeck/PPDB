@@ -6,6 +6,7 @@ class Login extends CI_Controller {
         parent::__construct();
         $this->load->model('M_Login');
         $this->load->library('session');
+        $this->load->library('encryption');
     }
     public function index(){
         $session = $this->session->userdata('login'); 
@@ -17,8 +18,8 @@ class Login extends CI_Controller {
     }
     public function cek_login() {
         $username = $this->security->xss_clean($this->input->post("username"));
-        $password = $this->security->xss_clean($this->input->post("password"));
-        
+        $password = md5($this->security->xss_clean($this->input->post("password_user")));
+
         $cek = $this->M_Login->cek_user($username,($password));
         if(count($cek) == 1){
             $this->session->set_userdata(array(
